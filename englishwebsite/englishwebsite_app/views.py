@@ -1,22 +1,24 @@
-from django.shortcuts import render, HttpResponseRedirect
+from django.shortcuts import render
 from englishwebsite_app.models import User
-from datetime import datetime
-
-#from englishwebsite_app.forms import FormularioNoticia, FormularioModeloNoticia
 
 # Create your views here.
 
-def inicio(request):
-    nueva = User()
-    nueva.first_name = 'Hola'
-    nueva.last_name = 'Usuario'
-    nueva.birthdate = datetime.now()
-    
-
-
+def base(request):
     return render(
         request,
-        'home.html',
+        'base.html',
+    )
+
+def homelogin(request):
+    return render(
+        request,
+        'homelogin.html',
+    )
+
+def register(request):
+    return render(
+        request,
+        'register.html',
     )
 
 def ejemplo_form_pelado(request):

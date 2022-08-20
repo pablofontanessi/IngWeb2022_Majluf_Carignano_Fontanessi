@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        {% if user.is_authenticated%}
+        <li class="nav-item active"><a class="nav-link js-scroll-trigger" href="/"><big> Active exercises </big><span class="sr-only">(current)</span></a></li>
+        {% endif %}
+    </ul>
+    <ul class="navbar-nav ml-auto nav-flex-icons right">
+        {% if request.user.is_authenticated %}
+            <li class="nav-item dropdown"></li>
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-user"></i>
+                    <big>{{ user.username }}</big>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+                    <a class="dropdown-item" href="/yourexercises/">Your exercises </a>
+                    <a class="dropdown-item" href="{% url 'logout' %}">Log out</a>
+                </div>
+            </li>
+        {% else %}
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-user"></i>
+                    <big>Log In</big>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+                    <a class="dropdown-item text-dark" href="/accounts/login/">LOG IN</a>
+                    <a class="dropdown-item text-dark" href="/register/">REGISTER</a>
+                </div>
+            </li>
+        {% endif %}
+    </ul>
+</nav>

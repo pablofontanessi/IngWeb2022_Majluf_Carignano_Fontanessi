@@ -1,0 +1,71 @@
+{% block scripts_encabezado %}
+<style>
+    #notification_count {
+        padding: 0px 3px 3px 7px;
+        background: #cc0000;
+        color: #ffffff;
+        font-weight: bold;
+        margin-left: 77px;
+        border-radius: 9px;
+        -moz-border-radius: 9px;
+        -webkit-border-radius: 9px;
+        position: absolute;
+        margin-top: -1px;
+        font-size: 20px;
+        width: 40px;
+    }
+    .botonimagen{
+        background-image:url(/static/img/campanita.png);
+        background-repeat:no-repeat;
+        height:50px;
+        width: 70px;
+        background-position:center;
+    }
+</style>
+{% endblock %}
+
+<div class="btn-group">
+    <button type="button" class="btn btn-default botonimagen"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {% if cantidad > 0 %}
+            <div class="text-right">
+              <span class="badge badge-light">{{cantidad}}</span>
+            </div>
+            {% endif %}
+    </button>
+    
+    <ul class="dropdown-menu dropdown-menu-right">
+      {% if cantidad == 0 %}
+      <li><a class="dropdown-item">
+        <p class="text-muted">
+          No se encuentran notificaciones para mostrar
+        </p>
+      </a></li>
+      {% else %}
+      {% for reserva in reservas %}
+        <li>
+          <a href="/reservas/confirmar/{{reserva.pk}}/" class="dropdown-item">
+            <p class="text-muted">
+            {{reserva.usuario}} quiere realizar una reserva desde {{reserva.fechaInicio}} hasta {{reserva.fechaFin}}
+            </p>
+          </a>
+        </li>
+      {% endfor %}
+      {% for mi_reserva in mis_reservas %}
+        <li>
+          <a href="/misreservas/" class="dropdown-item">
+            <p class="text-muted">
+              {% if mi_reserva.confirmado == True %}
+                {{mi_reserva.camping.nombre}} ha confirmado tu solicitud de reserva de la fecha {{mi_reserva.fechaInicio}} hasta {{mi_reserva.fechaFin}}
+              {% else %}
+                {% if mi_reserva.rechazado == True %}
+                  {{mi_reserva.camping.nombre}} ha rechazado tu solicitud de reserva de la fecha {{mi_reserva.fechaInicio}} hasta {{mi_reserva.fechaFin}}
+                {% endif %}
+              {% endif %}
+            </p>
+          </a>
+        </li>
+      {% endfor %}
+      {% endif %}
+    </ul>
+</div>

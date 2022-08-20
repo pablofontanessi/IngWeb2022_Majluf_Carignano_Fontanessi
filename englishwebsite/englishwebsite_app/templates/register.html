@@ -1,0 +1,53 @@
+{% load static %}
+{% block content %}
+
+<style>
+    .form-register {
+            width: 100%;
+            max-width: 330px;
+            padding: 15px;
+            margin: auto;
+        }
+    .btn-primary {
+        color: #079748;
+        background-color: #fff;
+        border-color: #079748;
+    }
+    .btn-primary:hover {
+    color: #fff;
+    background-color: #d4bd22;
+    border-color: #fff;
+    }
+</style>
+
+<div class="text-center">
+    <form class="form-register" method="POST" style="align-content: center;">
+        {% csrf_token %}
+
+        <h1 class="h3 mb-3 font-weight-normal">User register</h1>
+
+        <label class="sr-only">User name</label>
+        <input type="username" class="form-control" required="" placeholder="User name" name="username">
+        {{form.errors.username}}
+        <br>
+
+        <label class="sr-only">Email</label>
+        <input type="email" class="form-control" required="" placeholder="Email" name="email">
+        {{form.errors.email}}
+        <br>
+
+        <label class="sr-only">Password</label>
+        <input type="password" class="form-control" placeholder="Password" required="" aria-placeholder="Password" name="password1">
+        <br>
+
+        <label class="sr-only">Confirm password</label>
+        <input type="password" class="form-control" placeholder="Confirm password" required="" aria-placeholder="Confirmar contraseña" name="password2">
+        {{form.errors.password2}}
+        <br>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">REGISTER</button>
+        <br>
+        <br>
+    </form>
+</div>
+{% endblock content %}

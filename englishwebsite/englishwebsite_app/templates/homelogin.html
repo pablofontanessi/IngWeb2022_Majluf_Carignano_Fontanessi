@@ -1,0 +1,81 @@
+{% load static %}
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+    <!-- Third party plugin CSS-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
+
+</head>
+
+<style>
+    header.masthead {
+        padding-top: 10rem;
+        padding-bottom: calc(10rem - 3rem);
+        background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url('static/img/homeimage.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        background-size: cover;
+        }
+</style>
+
+<body>
+    <!--Navbar-->
+    {% comment %}
+    {% endcomment %}
+    {% block barra %}
+        {% include "barra.html" %}
+    {% endblock barra %}
+
+    <!-- Masthead-->
+    <header class="masthead">
+        <div class="container h-auto">
+            <div class="row h-10 align-items-center justify-content-center text-center">
+                <div class="col-lg-10 align-self-end">
+                    <img src="{% static '/img/icandoit.jpg' %}" width="400" height="250">
+                    <hr class="divider my-4" style="border-color: #d4bd22;"/>
+                </div>
+                <div class="col-lg-8 align-self-baseline">
+                    <p class="text-white-150 font-weight-light mb-5" style="color: white;">
+                        Welcome again <big>{{ user.username }}</big> !
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <footer>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div style="background-color: #079748; height: 8px;"></div>
+        <div style="background-color: #079748; height: 2px;" class="text-center">
+            <div class="container"><div class="small text-center text-muted">Copyright © 2022 - English web</div></div>
+            <p>Carignano - Fontanessi - Majluf</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Third party plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+</body>
+</html>

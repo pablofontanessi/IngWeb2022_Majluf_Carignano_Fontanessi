@@ -1,0 +1,1 @@
+web: cd englishwebsite && gunicorn englishwebsite.wsgi --log-file -

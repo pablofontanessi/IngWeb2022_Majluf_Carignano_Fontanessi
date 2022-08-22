@@ -2,6 +2,7 @@
 *.log
 *.pot
 *.pyc
-/englishwebsite/__pycache__/pyc
+englishwebsite/__pycache__/pyc
 local_settings.py
 media
+englishappenv

@@ -26,7 +26,7 @@ urlpatterns = [
     
     #user register
     path('register/', views.register),
-    path('register/homelogin', views.homelogin),
+   
 
     #auth login
     path("accounts/", include("django.contrib.auth.urls")),

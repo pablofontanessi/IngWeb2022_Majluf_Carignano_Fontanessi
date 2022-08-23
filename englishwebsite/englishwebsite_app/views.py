@@ -1,10 +1,8 @@
-from multiprocessing import context
-from django.shortcuts import render
-from englishwebsite_app.models import User
 from django.shortcuts import  render, redirect
 from .forms import UserRegisterForm
 from django.contrib.auth import login
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -14,6 +12,7 @@ def base(request):
         'base.html',
     )
 
+@login_required
 def homelogin(request):
     return render(
         request,
@@ -34,11 +33,3 @@ def register(request):
 
 	context = { 'form' : form }
 	return render(request, 'register.html', context)
-
-
-
-def ejemplo_form_pelado(request):
-    print("los datos son:", request.POST)
-    return render(
-        request, "ejemplo_form_pelado.html", {}
-    )

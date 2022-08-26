@@ -7,10 +7,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def base(request):
-    return render(
-        request,
-        'base.html',
-    )
+    return render(request,'base.html',)
 
 @login_required
 def homelogin(request):
@@ -28,8 +25,19 @@ def register(request):
 			messages.success(request, f'Usuario {username} creado')
 			return redirect('/homelogin')
 	else:
-		form = UserRegisterForm()
-        
+		form = UserRegisterForm()        
 
 	context = { 'form' : form }
 	return render(request, 'register.html', context)
+
+@login_required
+def writing(request):
+	return render(request,'writing.html')
+
+@login_required
+def reading(request):
+	return render(request,'reading.html')
+
+@login_required
+def listening(request):
+	return render(request,'listening.html')

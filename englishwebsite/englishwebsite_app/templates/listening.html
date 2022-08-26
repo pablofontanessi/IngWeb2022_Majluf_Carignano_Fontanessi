@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/exercises.css' %}" />
+</head>
+
+<body>
+	<section id="listeningexercises" class="wrapper style3 special">
+		<div class="inner">
+
+			<header class="major">
+				<h2>LISTENING EXERCISES</h2>
+				<p>Click here, for more exercises to practise.</p>
+				<input type="button" onclick="history.back()" name="back" value="BACK TO MAIN">
+			</header>
+
+			<ul class="exercises">
+				<li class="listening1">
+					<h3>Listening 1</h3>
+					<p>Rellenar con preview de listening 1</p>
+                    <audio controls>
+                        <source src="{% static 'listening/listening1.mp3' %}" type="audio/mp3">
+                    </audio>
+				</li>
+				<li class="listening2">
+					<h3>Listening 2</h3>
+					<p>Rellenar con preview de listening 2</p>
+                    <audio controls>
+                        <source src="{% static 'listening/listening1.mp3' %}" type="audio/mp3">
+                    </audio>
+				</li>
+				<li class="listening3">
+					<h3>Listening 3</h3>
+					<p>Rellenar con preview de listening 3</p>
+                    <audio controls>
+                        <source src="{% static 'listening/listening1.mp3' %}" type="audio/mp3">
+                    </audio>
+				</li>
+				<li class="listening4">
+					<h3>Listening 4</h3>
+					<p>Rellenar con preview de listening 4</p>
+                    <audio controls>
+                        <source src="{% static 'listening/listening1.mp3' %}" type="audio/mp3">
+                    </audio>
+				</li>
+			</ul>
+		</div>
+	</section>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+.exercises {
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -moz-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -moz-justify-content: center;
+    -webkit-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+    .exercises li {
+        padding: 4em 4em 2em 6em;
+        display: block;
+        position: relative;
+        text-align: center;
+        width: 50%;
+    }
+
+        .exercises li:nth-child(1) {
+            background-color: rgba(0, 0, 0, 0.035);
+        }
+
+        .exercises li:nth-child(2) {
+            background-color: rgba(0, 0, 0, 0.07);
+        }
+
+        .exercises li:nth-child(3) {
+            background-color: rgba(0, 0, 0, 0.105);
+        }
+
+        .exercises li:nth-child(4) {
+            background-color: rgba(0, 0, 0, 0.14);
+        }
+
+
+        /* Wrapper */
+
+	.wrapper {
+		padding: 6em 0 4em 0;
+	}
+
+		.wrapper > .inner {
+			width: 60em;
+			margin: 0 auto;
+		}
+
+		@media screen and (max-width: 1280px) {
+			.wrapper > .inner {
+				width: 90%;
+			}
+		}
+
+
+		.wrapper.style3 {
+			background-color: #505393;
+			color: #d3d4e4;
+		}
+
+			.wrapper.style3 h2, .wrapper.style3 h3 {
+				color: rgba(0, 0, 0);
+			}
+
+			.wrapper.style3 hr {
+				border-color: rgba(0, 0, 0, 0.125);
+			}
+
+			.wrapper.style3 blockquote {
+				border-color: rgba(0, 0, 0, 0.125);
+			}
+
+			.wrapper.style3 code {
+				background: rgba(255, 255, 255, 0.075);
+			}
+
+			.wrapper.style3 header.major h2, .wrapper.style3 header.major h3 {
+				border-color: rgba(0, 0, 0, 0.125);
+                font-size: 3rem;
+                text-align: center;
+			}
+
+			.wrapper.style3 header.major p {
+				color: red;
+                text-align: center;
+                padding-bottom: 1cm;
+			}
+
+			.wrapper.style3 label {
+				color: #ffffff;
+			}
+
+            .wrapper.style3 header.major input {
+                background-color: blue;
+                border: none;
+                color: white;
+                padding: 15px 15px; 
+                text-decoration: none;
+                margin: 4px 2px;
+                cursor: pointer;
+                text-align: center;
+                border-radius: 8px;
+                width: 120px; 
+                text-align:center;
+			}
+

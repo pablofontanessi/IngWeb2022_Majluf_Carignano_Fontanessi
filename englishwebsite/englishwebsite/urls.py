@@ -7,6 +7,9 @@ urlpatterns = [
     path('', views.base),
     path('homelogin', views.homelogin),
     path('admin/', admin.site.urls),
+    path('writing', views.writing),
+    path('reading', views.reading),
+    path('listening', views.listening),
     
     #user register
     path('register/', views.register), 

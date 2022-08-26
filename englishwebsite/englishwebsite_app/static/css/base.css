@@ -1,0 +1,9 @@
+header.centerheader {
+    padding-top: 10rem;
+    padding-bottom: calc(10rem - 3rem);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: contain;
+}
+

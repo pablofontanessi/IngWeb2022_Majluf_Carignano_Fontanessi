@@ -53,3 +53,15 @@ def alphabetExercises(request):
 @login_required
 def articlesExercises(request):
 	return render(request,'articles.html')
+
+@login_required
+def vocabularyExercises(request):
+	return render(request,'vocabulary-exercises.html')
+
+@login_required
+def nacionalitiesExercisesAmerica(request):
+	return render(request,'america-nationalities.html')
+
+@login_required
+def nacionalitiesExercisesAsia(request):
+	return render(request,'asia-nationalities.html')

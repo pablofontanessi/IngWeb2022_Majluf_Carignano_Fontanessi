@@ -13,6 +13,9 @@ urlpatterns = [
     path('grammar-exercises', views.grammarExercices),
     path('alphabet-exercises',views.alphabetExercises),
     path('articles-exercises',views.articlesExercises),
+    path('vocabulary-exercises',views.vocabularyExercises),
+    path('america-nationalities',views.nacionalitiesExercisesAmerica),
+    path('asia-nationalities',views.nacionalitiesExercisesAsia),
     
     #user register
     path('register/', views.register), 

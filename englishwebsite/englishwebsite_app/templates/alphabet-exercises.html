@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/exercises.css' %}" />
+</head>
+
+<body>
+	<section id="grammar-exercises" class="wrapper style3 special">
+		<div class="inner">
+
+			<header class="major">
+				<h2>Alphabet excercises!</h2>
+				<input type="button" onclick="history.back()" name="back" value="BACK">
+			</header>
+
+			<div id="principal">
+                <h1>Abc order - exercises</h1>
+                <h2>What letter comes next?</h2>
+            <form name="mc" id="mc" action="">
+                  <p>
+                    <textarea  name="q" cols="23" rows="2" readonly="" class="text-kelly-top" wrap="virtual" >A - B - ? </textarea>
+                  </p>
+                  <input type="button" class="button-choice" name="ca" onclick=" FA()" value="D">
+                  <br>
+                  <input type="button" class="button-choice" name="cb" onclick=" FB()" value="E">
+                  <br>
+                  <input type="button" class="button-choice" name="cc" onclick=" FC()" value="C">
+                  <br>
+                  <p>
+                    <input name="show" type="button" class="text-area" onclick="SQ(1)" value="Next question">
+                  </p><p>&nbsp;</p>
+                  <p></p>
+                </form>
+                <form name="feedback" id="feedback" action="">
+                  <p>
+                    <textarea name="fb" cols="26" rows="2" class="text-kelly-bottom" wrap="virtual"></textarea>
+                  </p>
+                  <p><br>
+                    <span class="test-resp">Tries</span>:
+                    <input name="tries" type="button" onfocus="this.blur()" value="3" size="3">
+                    &nbsp;&nbsp;<span class="test-resp">&nbsp;Score:</span>
+                    <input type="button" name="score" value="-1" size="3" onfocus="this.blur()">
+                  </p>
+                </form>
+                <p>&nbsp;</p>
+
+              </div>
+	</section>
+</body>
+
+</html>

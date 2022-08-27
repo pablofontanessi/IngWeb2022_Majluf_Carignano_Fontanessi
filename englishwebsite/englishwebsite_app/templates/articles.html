@@ -1,0 +1,122 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/exercises.css' %}" />
+</head>
+
+<body>
+	<section id="grammar-exercises" class="wrapper style3 special">
+		<div class="inner">
+
+			<header class="major">
+				<h2>A - AN excercises!</h2>
+				<input type="button" onclick="history.back()" name="back" value="BACK">
+			</header>
+
+			<div id="principal">
+                <h1>Articles a / an</h1>
+                <h2>Exercises: write a or an</h2>
+                <div id="ContainerDiv">
+                  <div class="ExerciseContainer"> 
+                    <div id="ClozeDiv">
+                      <form id="Cloze" method="post" autocomplete="off" onsubmit="return false;">
+                        <div class="ClozeBody">
+                          <table width="416">
+                            <tbody>
+                              <tr>
+                                <td width="49"><img src="{% static '/img/arrow.jpg' %}" alt="" width="42" height="35"></td>
+                                <td width="343">This is <span class="GapSpan" id="GapSpan0">
+                                  <input type="text" id="arrow" size="3">
+                                </span> arrow.</td>
+                              </tr>
+                              <tr>
+                                <td><img src="{% static '/img/pencil.gif' %}" alt="" width="49" height="35"></td>
+                                <td>This is <span class="GapSpan" id="GapSpan1">
+                                  <input type="text" autocomplete="off" id="Gap1" onfocus="TrackFocus(1)" onblur="LeaveGap()" class="GapBox" size="3">
+                                </span> pencil.</td>
+                              </tr>
+                              <tr>
+                                <td><img src="{% static '/img/actress.jpg' %}" alt="" width="42" height="35"></td>
+                                <td>She is <span class="GapSpan" id="GapSpan2">
+                                  <input type="text" autocomplete="off" id="Gap2" onfocus="TrackFocus(2)" onblur="LeaveGap()" class="GapBox" size="3">
+                                </span> actress.</td>
+                              </tr>
+                              <tr>
+                                <td><img src="{% static '/img/owl.jpg' %}" alt="" width="36" height="35"></td>
+                                <td>This is <span class="GapSpan" id="GapSpan3">
+                                  <input type="text" autocomplete="off" id="Gap3" onfocus="TrackFocus(3)" onblur="LeaveGap()" class="GapBox" size="3">
+                                </span> owl.</td>
+                              </tr>
+                              <tr>
+                                <td><img src="{% static '/img/hen.gif' %}" alt="" width="39" height="35"></td>
+                                <td>This is <span class="GapSpan" id="GapSpan4">
+                                  <input type="text" autocomplete="off" id="Gap4" onfocus="TrackFocus(4)" onblur="LeaveGap()" class="GapBox" size="3">
+                                </span> hen.</td>
+                              </tr>
+                              <tr>
+                                <td><img src="{% static '/img/wolf.jpg' %}" alt="" width="43" height="35"></td>
+                                <td>That is <span class="GapSpan" id="GapSpan5">
+                                  <input type="text" autocomplete="off" id="Gap5" onfocus="TrackFocus(5)" onblur="LeaveGap()" class="GapBox" size="3">
+                                </span> wolf.</td>
+                              </tr>
+                              <tr>
+                                <td><img src="{% static '/img/eagle.gif' %}" alt="" width="41" height="35"></td>
+                                <td>That is <span class="GapSpan" id="GapSpan6">
+                                  <input type="text" autocomplete="off" id="Gap6" onfocus="TrackFocus(6)" onblur="LeaveGap()" class="GapBox" size="3">
+                                </span> eagle.</td>
+                              </tr>
+                              <tr>
+                                <td><img src="{% static '/img/astronaut.jpg' %}" alt="" width="48" height="35"></td>
+                                <td>He is <span class="GapSpan" id="GapSpan7">
+                                  <input type="text" autocomplete="off" id="Gap7" onfocus="TrackFocus(7)" onblur="LeaveGap()" class="GapBox" size="3">
+                                </span> astronaut.</td>
+                              </tr>
+                              <tr>
+                                <td><img src="{% static '/img/hamburger.jpg' %}" alt="" width="44" height="35"></td>
+                                <td>This is <span class="GapSpan" id="GapSpan8">
+                                  <input type="text" autocomplete="off" id="Gap8" onfocus="TrackFocus(8)" onblur="LeaveGap()" class="GapBox" size="3">
+                                  </span> hamburger.</td>
+                              </tr>
+                              <tr>
+                                <td><img src="{% static '/img/island.gif' %}" alt="" width="39" height="35"></td>
+                                <td>It is <span class="GapSpan" id="GapSpan9">
+                                  <input type="text" autocomplete="off" id="Gap9" onfocus="TrackFocus(9)" onblur="LeaveGap()" class="GapBox" size="3">
+                                </span> island.</td>
+                              </tr>
+                              <tr>
+                                <td><img src="{% static '/img/hour.jpg' %}" alt="" width="35" height="35"></td>
+                                <td>Sixty minutes in <span class="GapSpan" id="GapSpan10">
+                                  <input type="text" autocomplete="off" id="Gap10" onfocus="TrackFocus(10)" onblur="LeaveGap()" class="GapBox" size="3">
+                                </span> hour.</td>
+                              </tr>
+                              <tr>
+                                <td><img src="{% static '/img/unicorn.gif' %}" alt="" width="44" height="35"></td>
+                                <td>This is <span class="GapSpan" id="GapSpan11">
+                                  <input type="text" autocomplete="off" id="Gap11" onfocus="TrackFocus(11)" onblur="LeaveGap()" class="GapBox" size="3">
+                                </span> unicorn.</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </form>
+                    </div>
+                    <button id="CheckButton2" class="FuncButton" onmouseover="FuncBtnOver(this)" onfocus="FuncBtnOver(this)" onmouseout="FuncBtnOut(this)" onblur="FuncBtnOut(this)" onmousedown="FuncBtnDown(this)" onmouseup="FuncBtnOut(this)" onclick="CheckAnswers()">&nbsp;Check&nbsp;</button>
+                    &nbsp;&nbsp;
+                    <button class="FuncButton" onmouseover="FuncBtnOver(this)" onfocus="FuncBtnOver(this)" onmouseout="FuncBtnOut(this)" onblur="FuncBtnOut(this)" onmousedown="FuncBtnDown(this)" onmouseup="FuncBtnOut(this)" onclick="ShowHint()">&nbsp;Hint&nbsp;</button>
+                    &nbsp;&nbsp;
+                    <button class="FuncButton" onfocus="NavBtnOver(this)" onblur="NavBtnOut(this)" onmouseover="NavBtnOver(this)" onmouseout="NavBtnOut(this)" onmousedown="NavBtnDown(this)" onmouseup="NavBtnOut(this)" onclick="location='https://agendaweb.org/grammar/articles-exercises.html'; return false;">More exercises »</button>
+                  </div>
+                </div>
+                <div class="Feedback" id="FeedbackDiv">
+                  <div class="FeedbackText" id="FeedbackContent"></div>
+                  <button id="FeedbackOKButton" class="FuncButton" onfocus="FuncBtnOver(this)" onblur="FuncBtnOut(this)" onmouseover="FuncBtnOver(this)" onmouseout="FuncBtnOut(this)" onmousedown="FuncBtnDown(this)" onmouseup="FuncBtnOut(this)" onclick="HideFeedback(); return false;">OK</button>
+                </div>
+                <p>&nbsp;</p>
+              </div>
+	</section>
+</body>
+
+</html>

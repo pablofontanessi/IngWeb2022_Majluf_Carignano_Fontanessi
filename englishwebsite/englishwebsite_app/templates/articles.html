@@ -4,119 +4,145 @@
 <html>
 
 <head>
-	<link rel="stylesheet" type="text/css" href="{% static 'css/exercises.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/exercises.css' %}" />
+  <script language="javascript" type="text/javascript">
+
+    var qu = new Array(); var chA = new Array(); var fbA = new Array(); var chB = new Array(); var fbB = new Array();
+    //begin data -  The feedback for correct choice must start with "Good!"
+
+    qu[1] = "... famous actress."
+    chA[1] = "a"
+    chB[1] = "an"
+    fbA[1] = "Good!"
+    fbB[1] = "Wrong!"
+
+    qu[2] = "... awful song."
+    chA[2] = "a"
+    chB[2] = "an"
+    fbA[2] = "Wrong!"
+    fbB[2] = "Good!"
+
+    qu[3] = "... interesting book."
+    chA[3] = "a"
+    chB[3] = "an"
+    fbA[3] = "Wrong!"
+    fbB[3] = "Good!"
+
+    qu[4] = "... English suit."
+    chA[4] = "a"
+    chB[4] = "an"
+    fbA[4] = "Wrong!"
+    fbB[4] = "Good!"
+
+    qu[5] = "... long river."
+    chA[5] = "a"
+    chB[5] = "an"
+    fbA[5] = "Good!"
+    fbB[5] = "Wrong!"
+
+    qu[6] = "... useful tool."
+    chA[6] = "a"
+    chB[6] = "an"
+    fbA[6] = "Good!"
+    fbB[6] = "Wrong!"
+
+    qu[7] = "... ugly man."
+    chA[7] = "a"
+    chB[7] = "an"
+    fbA[7] = "Wrong!"
+    fbB[7] = "Good!"
+
+    qu[8] = "... easy language."
+    chA[8] = "a"
+    chB[8] = "an"
+    fbA[8] = "Wrong!"
+    fbB[8] = "Good!"
+
+    qu[9] = "... used shirt."
+    chA[9] = "a"
+    chB[9] = "an"
+    fbA[9] = "Good!"
+    fbB[9] = "Wrong!"
+
+    qu[10] = "... old car."
+    chA[10] = "a"
+    chB[10] = "an"
+    fbA[10] = "Wrong!"
+    fbB[10] = "Good!"
+
+    qu[11] = "... utility room."
+    chA[11] = "a"
+    chB[11] = "an"
+    fbA[11] = "Good!"
+    fbB[11] = "Wrong!"
+
+    qu[12] = "... expensive ring."
+    chA[12] = "a"
+    chB[12] = "an"
+    fbA[12] = "Wrong!"
+    fbB[12] = "Good!"
+
+    qu[13] = "... excellent boy."
+    chA[13] = "a"
+    chB[13] = "an"
+    fbA[13] = "Wrong!"
+    fbB[13] = "Good!"
+
+    qu[14] = "... honest man. "
+    chA[14] = "a"
+    chB[14] = "an"
+    fbA[14] = "Wrong!"
+    fbB[14] = "Good!"
+    //end data
+    var SC = 0; var Tr = 0; var UA = 0; var UB = 0; var NQ = 0;
+    function CA() { Tr++; document.feedback.tries.value = Tr; if (fbA[NQ].indexOf("Good!", 0) == 0) { SC++ } else { SC-- } document.feedback.score.value = SC }
+    function CB() { Tr++; document.feedback.tries.value = Tr; if (fbB[NQ].indexOf("Good!", 0) == 0) { SC++ } else { SC-- } document.feedback.score.value = SC }
+    function FA() { document.feedback.fb.value = fbA[NQ]; if (UA == 0) { CA(); } UA = 1 }
+    function FB() { document.feedback.fb.value = fbB[NQ]; if (UB == 0) { CB(); } UB = 1 }
+    function SQ(QN) { UA = 0; UB = 0; NQ = NQ + QN; if (qu[NQ] == null) { document.mc.q.value = "No more questions!"; document.feedback.score.value = SC; document.feedback.fb.value = "You have finished."; document.mc.ca.value = ""; document.mc.cb.value = ""; } else { document.feedback.score.value = SC; document.feedback.fb.value = ""; document.mc.q.value = qu[NQ]; document.mc.ca.value = chA[NQ]; document.mc.cb.value = chB[NQ] } }
+    //-->
+  </script>
 </head>
 
 <body>
-	<section id="grammar-exercises" class="wrapper style3 special">
-		<div class="inner">
+  <section id="grammar-exercises" class="wrapper style3 special">
+    <div class="inner">
 
-			<header class="major">
-				<h2>A - AN excercises!</h2>
-				<input type="button" onclick="history.back()" name="back" value="BACK">
-			</header>
+      <header class="major">
+        <h2>A - AN excercises!</h2>
+        <input type="button" onclick="history.back()" name="back" value="BACK">
+      </header>
 
-			<div id="principal">
-                <h1>Articles a / an</h1>
-                <h2>Exercises: write a or an</h2>
-                <div id="ContainerDiv">
-                  <div class="ExerciseContainer"> 
-                    <div id="ClozeDiv">
-                      <form id="Cloze" method="post" autocomplete="off" onsubmit="return false;">
-                        <div class="ClozeBody">
-                          <table width="416">
-                            <tbody>
-                              <tr>
-                                <td width="49"><img src="{% static '/img/arrow.jpg' %}" alt="" width="42" height="35"></td>
-                                <td width="343">This is <span class="GapSpan" id="GapSpan0">
-                                  <input type="text" id="arrow" size="3">
-                                </span> arrow.</td>
-                              </tr>
-                              <tr>
-                                <td><img src="{% static '/img/pencil.gif' %}" alt="" width="49" height="35"></td>
-                                <td>This is <span class="GapSpan" id="GapSpan1">
-                                  <input type="text" autocomplete="off" id="Gap1" onfocus="TrackFocus(1)" onblur="LeaveGap()" class="GapBox" size="3">
-                                </span> pencil.</td>
-                              </tr>
-                              <tr>
-                                <td><img src="{% static '/img/actress.jpg' %}" alt="" width="42" height="35"></td>
-                                <td>She is <span class="GapSpan" id="GapSpan2">
-                                  <input type="text" autocomplete="off" id="Gap2" onfocus="TrackFocus(2)" onblur="LeaveGap()" class="GapBox" size="3">
-                                </span> actress.</td>
-                              </tr>
-                              <tr>
-                                <td><img src="{% static '/img/owl.jpg' %}" alt="" width="36" height="35"></td>
-                                <td>This is <span class="GapSpan" id="GapSpan3">
-                                  <input type="text" autocomplete="off" id="Gap3" onfocus="TrackFocus(3)" onblur="LeaveGap()" class="GapBox" size="3">
-                                </span> owl.</td>
-                              </tr>
-                              <tr>
-                                <td><img src="{% static '/img/hen.gif' %}" alt="" width="39" height="35"></td>
-                                <td>This is <span class="GapSpan" id="GapSpan4">
-                                  <input type="text" autocomplete="off" id="Gap4" onfocus="TrackFocus(4)" onblur="LeaveGap()" class="GapBox" size="3">
-                                </span> hen.</td>
-                              </tr>
-                              <tr>
-                                <td><img src="{% static '/img/wolf.jpg' %}" alt="" width="43" height="35"></td>
-                                <td>That is <span class="GapSpan" id="GapSpan5">
-                                  <input type="text" autocomplete="off" id="Gap5" onfocus="TrackFocus(5)" onblur="LeaveGap()" class="GapBox" size="3">
-                                </span> wolf.</td>
-                              </tr>
-                              <tr>
-                                <td><img src="{% static '/img/eagle.gif' %}" alt="" width="41" height="35"></td>
-                                <td>That is <span class="GapSpan" id="GapSpan6">
-                                  <input type="text" autocomplete="off" id="Gap6" onfocus="TrackFocus(6)" onblur="LeaveGap()" class="GapBox" size="3">
-                                </span> eagle.</td>
-                              </tr>
-                              <tr>
-                                <td><img src="{% static '/img/astronaut.jpg' %}" alt="" width="48" height="35"></td>
-                                <td>He is <span class="GapSpan" id="GapSpan7">
-                                  <input type="text" autocomplete="off" id="Gap7" onfocus="TrackFocus(7)" onblur="LeaveGap()" class="GapBox" size="3">
-                                </span> astronaut.</td>
-                              </tr>
-                              <tr>
-                                <td><img src="{% static '/img/hamburger.jpg' %}" alt="" width="44" height="35"></td>
-                                <td>This is <span class="GapSpan" id="GapSpan8">
-                                  <input type="text" autocomplete="off" id="Gap8" onfocus="TrackFocus(8)" onblur="LeaveGap()" class="GapBox" size="3">
-                                  </span> hamburger.</td>
-                              </tr>
-                              <tr>
-                                <td><img src="{% static '/img/island.gif' %}" alt="" width="39" height="35"></td>
-                                <td>It is <span class="GapSpan" id="GapSpan9">
-                                  <input type="text" autocomplete="off" id="Gap9" onfocus="TrackFocus(9)" onblur="LeaveGap()" class="GapBox" size="3">
-                                </span> island.</td>
-                              </tr>
-                              <tr>
-                                <td><img src="{% static '/img/hour.jpg' %}" alt="" width="35" height="35"></td>
-                                <td>Sixty minutes in <span class="GapSpan" id="GapSpan10">
-                                  <input type="text" autocomplete="off" id="Gap10" onfocus="TrackFocus(10)" onblur="LeaveGap()" class="GapBox" size="3">
-                                </span> hour.</td>
-                              </tr>
-                              <tr>
-                                <td><img src="{% static '/img/unicorn.gif' %}" alt="" width="44" height="35"></td>
-                                <td>This is <span class="GapSpan" id="GapSpan11">
-                                  <input type="text" autocomplete="off" id="Gap11" onfocus="TrackFocus(11)" onblur="LeaveGap()" class="GapBox" size="3">
-                                </span> unicorn.</td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                      </form>
-                    </div>
-                    <button id="CheckButton2" class="FuncButton" onmouseover="FuncBtnOver(this)" onfocus="FuncBtnOver(this)" onmouseout="FuncBtnOut(this)" onblur="FuncBtnOut(this)" onmousedown="FuncBtnDown(this)" onmouseup="FuncBtnOut(this)" onclick="CheckAnswers()">&nbsp;Check&nbsp;</button>
-                    &nbsp;&nbsp;
-                    <button class="FuncButton" onmouseover="FuncBtnOver(this)" onfocus="FuncBtnOver(this)" onmouseout="FuncBtnOut(this)" onblur="FuncBtnOut(this)" onmousedown="FuncBtnDown(this)" onmouseup="FuncBtnOut(this)" onclick="ShowHint()">&nbsp;Hint&nbsp;</button>
-                    &nbsp;&nbsp;
-                    <button class="FuncButton" onfocus="NavBtnOver(this)" onblur="NavBtnOut(this)" onmouseover="NavBtnOver(this)" onmouseout="NavBtnOut(this)" onmousedown="NavBtnDown(this)" onmouseup="NavBtnOut(this)" onclick="location='https://agendaweb.org/grammar/articles-exercises.html'; return false;">More exercises »</button>
-                  </div>
-                </div>
-                <div class="Feedback" id="FeedbackDiv">
-                  <div class="FeedbackText" id="FeedbackContent"></div>
-                  <button id="FeedbackOKButton" class="FuncButton" onfocus="FuncBtnOver(this)" onblur="FuncBtnOut(this)" onmouseover="FuncBtnOver(this)" onmouseout="FuncBtnOut(this)" onmousedown="FuncBtnDown(this)" onmouseup="FuncBtnOut(this)" onclick="HideFeedback(); return false;">OK</button>
-                </div>
-                <p>&nbsp;</p>
-              </div>
-	</section>
+      <div id="principal">
+        <h1>a / an - exercises</h1>
+        <form name="mc" id="mc" action="">
+          <p>
+            <textarea name="q" cols="23" rows="2" readonly wrap="virtual" class="text-kelly-top"></textarea>
+          </p>
+          <p>
+            <input type="button" class="button-choice" name="ca" onClick=" FA()">
+          </p>
+          <p>
+            <input type="button" class="button-choice" name="cb" onClick=" FB()">
+          </p>
+          <p>
+            <input name="show" type="button" class="text-area" onclick="SQ(1)" value="Next question">
+
+          </p>
+        </form>
+        <form name="feedback" id="feedback" action="">
+          <p>
+            <textarea name="fb" cols="26" rows="2" wrap="virtual" class="text-kelly-bottom"></textarea>
+          </p>
+          <p><br />
+            <span class="test-resp">Tries</span>:
+            <input name="tries" type="button" onfocus="this.blur()" value="" size="3" />
+            <span class="test-resp">Score:</span>
+            <input type="button" name="score" value="" size="3" onfocus="this.blur()" />
+          </p>
+        </form>
+      </div>
+  </section>
 </body>
 
 </html>

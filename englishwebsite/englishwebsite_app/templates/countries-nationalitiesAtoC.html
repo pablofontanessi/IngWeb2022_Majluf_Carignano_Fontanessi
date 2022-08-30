@@ -1,0 +1,329 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/exercises.css' %}" />
+
+  <script language="javascript" type="text/javascript">
+ 
+  var qu = new Array(); var chA = new Array(); var fbA = new Array(); var chB = new Array(); var fbB = new Array(); var chC = new Array(); var fbC = new Array(); var chD = new Array(); var fbD = new Array();
+    //begin data -  The feedback for correct choice must start with "Good!"
+
+    qu[1] = "Afghanistan."
+    chA[1] = "Albanian"
+    chB[1] = "Afghan"
+    chC[1] = "Andorran"
+    chD[1] = "Algerian"
+    fbA[1] = "Wrong!"
+    fbB[1] = "Good!"
+    fbC[1] = "Wrong!"
+    fbD[1] = "Wrong!"
+
+    qu[2] = "Albania."
+    chA[2] = "Afghan"
+    chB[2] = "Angolan"
+    chC[2] = "Albanian"
+    chD[2] = "Algerian"
+    fbA[2] = "Wrong!"
+    fbB[2] = "Wrong!"
+    fbC[2] = "Good!"
+    fbD[2] = "Wrong!"
+
+    qu[3] = "Algeria."
+    chA[3] = "Algerian"
+    chB[3] = "Albanian"
+    chC[3] = "Afghan"
+    chD[3] = "Andorran"
+    fbA[3] = "Good!"
+    fbB[3] = "Wrong!"
+    fbC[3] = "Wrong!"
+    fbD[3] = "Wrong!"
+
+    qu[4] = "Andorra."
+    chA[4] = "Algerian"
+    chB[4] = "Aguillan"
+    chC[4] = "Armenian"
+    chD[4] = "Andorran"
+    fbA[4] = "Wrong!"
+    fbB[4] = "Wrong!"
+    fbC[4] = "Wrong!"
+    fbD[4] = "Good!"
+
+    qu[5] = "Argentina."
+    chA[5] = "Andorran"
+    chB[5] = "Algerian"
+    chC[5] = "Armenian"
+    chD[5] = "Argentine"
+    fbA[5] = "Wrong!"
+    fbB[5] = "Wrong!"
+    fbC[5] = "Wrong!"
+    fbD[5] = "Good!"
+
+    qu[6] = "Australia."
+    chA[6] = "Aruban"
+    chB[6] = "Australian"
+    chC[6] = "Austrian"
+    chD[6] = "Azerbaijani"
+    fbA[6] = "Wrong!"
+    fbB[6] = "Good!"
+    fbC[6] = "Wrong!"
+    fbD[6] = "Wrong!"
+
+    qu[7] = "Austria."
+    chA[7] = "Austrian"
+    chB[7] = "Australian"
+    chC[7] = "Argentinian"
+    chD[7] = "Armenian"
+    fbA[7] = "Good!"
+    fbB[7] = "Wrong!"
+    fbC[7] = "Wrong!"
+    fbD[7] = "Wrong!"
+
+    qu[8] = "Azerbaijan."
+    chA[8] = "Austrian"
+    chB[8] = "Azerbaijani"
+    chC[8] = "Aruban"
+    chD[8] = "Australian"
+    fbA[8] = "Wrong!"
+    fbB[8] = "Good!"
+    fbC[8] = "Wrong!"
+    fbD[8] = "Wrong!"
+
+    qu[9] = "Bahamas."
+    chA[9] = "Bahraini"
+    chB[9] = "Belarusian"
+    chC[9] = "Bahamian"
+    chD[9] = "Belgian"
+    fbA[9] = "Wrong!"
+    fbB[9] = "Wrong!"
+    fbC[9] = "Good!"
+    fbD[9] = "Wrong!"
+
+    qu[10] = "Bahrain."
+    chA[10] = "Bahamian"
+    chB[10] = "Bahraini"
+    chC[10] = "Belarusian"
+    chD[10] = "Belgian"
+    fbA[10] = "Wrong!"
+    fbB[10] = "Good!"
+    fbC[10] = "Wrong!"
+    fbD[10] = "Wrong!"
+
+    qu[11] = "Belarus."
+    chA[11] = "Bahraini"
+    chB[11] = "Bahamian"
+    chC[11] = "Belizean"
+    chD[11] = "Belarusian"
+    fbA[11] = "Wrong!"
+    fbB[11] = "Wrong!"
+    fbC[11] = "Wrong!"
+    fbD[11] = "Good!"
+
+    qu[12] = "Belgium."
+    chA[12] = "Belizean"
+    chB[12] = "Bolivian"
+    chC[12] = "Belarusian"
+    chD[12] = "Belgian"
+    fbA[12] = "Wrong!"
+    fbB[12] = "Wrong!"
+    fbC[12] = "Wrong!"
+    fbD[12] = "Good!"
+
+    qu[13] = "Belize."
+    chA[13] = "Bolivian"
+    chB[13] = "Belgian"
+    chC[13] = "Belizean"
+    chD[13] = "Belarusian"
+    fbA[13] = "Wrong!"
+    fbB[13] = "Wrong!"
+    fbC[13] = "Good!"
+    fbD[13] = "Wrong!"
+
+    qu[14] = "Bolivia."
+    chA[14] = "Belizean"
+    chB[14] = "Belgian"
+    chC[14] = "Bolivian"
+    chD[14] = "Bosnian"
+    fbA[14] = "Wrong!"
+    fbB[14] = "Wrong!"
+    fbC[14] = "Good!"
+    fbD[14] = "Wrong!"
+
+    qu[15] = "Bosnia."
+    chA[15] = "Bosnian"
+    chB[15] = "Bolivian"
+    chC[15] = "Belgian"
+    chD[15] = "Brazilian"
+    fbA[15] = "Good!"
+    fbB[15] = "Wrong!"
+    fbC[15] = "Wrong!"
+    fbD[15] = "Wrong!"
+
+    qu[16] = "Brazil."
+    chA[16] = "Bosnian"
+    chB[16] = "Brazilian"
+    chC[16] = "Bolivian"
+    chD[16] = "Bulgarian"
+    fbA[16] = "Wrong!"
+    fbB[16] = "Good!"
+    fbC[16] = "Wrong!"
+    fbD[16] = "Wrong!"
+
+    qu[17] = "Bulgaria."
+    chA[17] = "British"
+    chB[17] = "Bulgarian"
+    chC[17] = "Brazilian"
+    chD[17] = "Bosnian"
+    fbA[17] = "Wrong!"
+    fbB[17] = "Good!"
+    fbC[17] = "Wrong!"
+    fbD[17] = "Wrong!"
+
+    qu[18] = "Cameroon."
+    chA[18] = "Cambodian"
+    chB[18] = "Canadian"
+    chC[18] = "Cameroonian"
+    chD[18] = "Chadian"
+    fbA[18] = "Wrong!"
+    fbB[18] = "Wrong!"
+    fbC[18] = "Good!"
+    fbD[18] = "Wrong!"
+
+    qu[19] = "Canada."
+    chA[19] = "Cameroonian"
+    chB[19] = "Cape Verdean"
+    chC[19] = "Chilean"
+    chD[19] = "Canadian"
+    fbA[19] = "Wrong!"
+    fbB[19] = "Wrong!"
+    fbC[19] = "Wrong!"
+    fbD[19] = "Good!"
+
+    qu[20] = "Cape Verde."
+    chA[20] = "Central African"
+    chB[20] = "Cape Verdean"
+    chC[20] = "Costa Rican"
+    chD[20] = "Canadian"
+    fbA[20] = "Wrong!"
+    fbB[20] = "Good!"
+    fbC[20] = "Wrong!"
+    fbD[20] = "Wrong!"
+
+    qu[21] = "Chad."
+    chA[21] = "Chadian"
+    chB[21] = "Chilean"
+    chC[21] = "Colombian"
+    chD[21] = "Cuban"
+    fbA[21] = "Good!"
+    fbB[21] = "Wrong!"
+    fbC[21] = "Wrong!"
+    fbD[21] = "Wrong!"
+
+    qu[22] = "Chile."
+    chA[22] = "Chadian"
+    chB[22] = "Cape Verdean"
+    chC[22] = "Costa Rican"
+    chD[22] = "Chilean"
+    fbA[22] = "Wrong!"
+    fbB[22] = "Wrong!"
+    fbC[22] = "Wrong!"
+    fbD[22] = "Good!"
+
+    qu[23] = "Colombia."
+    chA[23] = "Chilean"
+    chB[23] = "Croatian"
+    chC[23] = "Cuban"
+    chD[23] = "Colombian"
+    fbA[23] = "Wrong!"
+    fbB[23] = "Wrong!"
+    fbC[23] = "Wrong!"
+    fbD[23] = "Good!"
+
+    qu[24] = "Costa Rica."
+    chA[24] = "Central African"
+    chB[24] = "Costa Rican"
+    chC[24] = "Cape Verdean"
+    chD[24] = "Colombian"
+    fbA[24] = "Wrong!"
+    fbB[24] = "Good!"
+    fbC[24] = "Wrong!"
+    fbD[24] = "Wrong!"
+
+    qu[25] = "Croatia."
+    chA[25] = "Croatian"
+    chB[25] = "Cuban"
+    chC[25] = "Colombian"
+    chD[25] = "Chadian"
+    fbA[25] = "Good!"
+    fbB[25] = "Wrong!"
+    fbC[25] = "Wrong!"
+    fbD[25] = "Wrong!"
+    //end data
+    var SC = 0; var Tr = 0; var UA = 0; var UB = 0; var UC = 0; var UD = 0; var UE = 0; var UF = 0; var NQ = 0;
+    function CA() { Tr++; document.feedback.tries.value = Tr; if (fbA[NQ].indexOf("Good!", 0) == 0) { SC++ } else { SC-- } document.feedback.score.value = SC }
+    function CB() { Tr++; document.feedback.tries.value = Tr; if (fbB[NQ].indexOf("Good!", 0) == 0) { SC++ } else { SC-- } document.feedback.score.value = SC }
+    function CC() { Tr++; document.feedback.tries.value = Tr; if (fbC[NQ].indexOf("Good!", 0) == 0) { SC++ } else { SC-- } document.feedback.score.value = SC }
+    function CD() { Tr++; document.feedback.tries.value = Tr; if (fbD[NQ].indexOf("Good!", 0) == 0) { SC++ } else { SC-- } document.feedback.score.value = SC }
+    function CE() { Tr++; document.feedback.tries.value = Tr; if (fbE[NQ].indexOf("Good!", 0) == 0) { SC++ } else { SC-- } document.feedback.score.value = SC }
+    function CF() { Tr++; document.feedback.tries.value = Tr; if (fbF[NQ].indexOf("Good!", 0) == 0) { SC++ } else { SC-- } document.feedback.score.value = SC }
+    function FA() { document.feedback.fb.value = fbA[NQ]; if (UA == 0) { CA(); } UA = 1 }
+    function FB() { document.feedback.fb.value = fbB[NQ]; if (UB == 0) { CB(); } UB = 1 }
+    function FC() { document.feedback.fb.value = fbC[NQ]; if (UC == 0) { CC(); } UC = 1 }
+    function FD() { document.feedback.fb.value = fbD[NQ]; if (UD == 0) { CD(); } UD = 1 }
+    function FE() { document.feedback.fb.value = fbE[NQ]; if (UE == 0) { CE(); } UE = 1 }
+    function FF() { document.feedback.fb.value = fbF[NQ]; if (UF == 0) { CF(); } UF = 1 }
+    function SQ(QN) { UA = 0; UB = 0; UC = 0; UD = 0; UE = 0; UF = 0; NQ = NQ + QN; if (qu[NQ] == null) { document.mc.q.value = "No more questions!\nCLOSE this window and do more exercises."; document.feedback.score.value = SC; document.feedback.fb.value = "You have finished."; document.mc.ca.value = ""; document.mc.cb.value = ""; document.mc.cc.value = ""; document.mc.cd.value = ""; document.mc.ce.value = ""; document.mc.cf.value = "" } else { document.feedback.score.value = SC; document.feedback.fb.value = ""; document.mc.q.value = qu[NQ]; document.mc.ca.value = chA[NQ]; document.mc.cb.value = chB[NQ]; document.mc.cc.value = chC[NQ]; document.mc.cd.value = chD[NQ]; document.mc.ce.value = chE[NQ]; document.mc.cf.value = chF[NQ] } }
+  //-->
+  </script>
+</head>
+
+<body>
+  <section id="vocabulary-exercises" class="wrapper style3 special">
+    <div class="inner">
+
+      <header class="major">
+        <h2>Vocabulary excercises!</h2>
+        <input type="button" onclick="history.back()" name="back" value="BACK">
+      </header>
+      <div id="principal">
+        <h1>Countries - Nationalities 1</h1>
+        <form name="mc" id="mc" action="">
+          <p>
+            <textarea name="q" cols="23" rows="2" readonly wrap="virtual" class="text-kelly-top"></textarea>
+          </p>
+          <input type="button" class="button-choice" name="ca" onClick=" FA()">
+          <br>
+          <input type="button" class="button-choice" name="cb" onClick=" FB()">
+          <br>
+          <input type="button" class="button-choice" name="cc" onClick=" FC()">
+          <br>
+          <input type="button" class="button-choice" name="cd" onClick=" FD()">
+          <br>
+          <p>
+            <input name="show" type="button" class="text-area" onclick="SQ(1)" value="Next question">
+          <p>;</p>
+          </p>
+        </form>
+        <form name="feedback" id="feedback" action="">
+          <p>
+            <textarea name="fb" cols="26" rows="2" wrap="virtual" class="text-kelly-bottom"></textarea>
+          </p>
+          <p><br />
+            <span class="test-resp">Tries</span>:
+            <input name="tries" type="button" onfocus="this.blur()" value="" size="3" />
+            ;;<span class="test-resp">;Score:</span>
+            <input type="button" name="score" value="" size="3" onfocus="this.blur()" />
+          </p>
+        </form>
+        <p>;</p>
+        
+      </div>
+
+
+
+  </section>
+</body>
+
+</html>

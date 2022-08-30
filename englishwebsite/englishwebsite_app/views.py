@@ -59,9 +59,9 @@ def vocabularyExercises(request):
 	return render(request,'vocabulary-exercises.html')
 
 @login_required
-def nacionalitiesExercisesAmerica(request):
-	return render(request,'america-nationalities.html')
+def nacionalitiesExercisesAtoC(request):
+	return render(request,'countries-nationalitiesAtoC.html')
 
 @login_required
-def nacionalitiesExercisesAsia(request):
-	return render(request,'asia-nationalities.html')
+def nacionalitiesExercisesCtoH(request):
+	return render(request,'countries-nationalitiesC-H.html')

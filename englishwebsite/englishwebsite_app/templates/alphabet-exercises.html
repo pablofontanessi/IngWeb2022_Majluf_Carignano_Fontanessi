@@ -1,0 +1,166 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/exercises.css' %}" />
+  <script language="javascript" type="text/javascript">
+
+    // See commented code at http://www.cats.ohiou.edu/~linguist/jscript/Mchoice.htm
+    // Or use the online quiz writer at http://a4esl.org/c/
+    var qu = new Array(); var chA = new Array(); var fbA = new Array(); var chB = new Array(); var fbB = new Array(); var chC = new Array(); var fbC = new Array();
+    //begin data -  The feedback for correct choice must start with "Good!"
+
+    qu[1] = "A - B - ?"
+    chA[1] = "D"
+    chB[1] = "E"
+    chC[1] = "C"
+    fbA[1] = "Wrong!"
+    fbB[1] = "Wrong!"
+    fbC[1] = "Good!"
+
+    qu[2] = "C - D - ?"
+    chA[2] = "E"
+    chB[2] = "H"
+    chC[2] = "F"
+    fbA[2] = "Good!"
+    fbB[2] = "Wrong!"
+    fbC[2] = "Wrong!"
+
+    qu[3] = "E - F - ?"
+    chA[3] = "H"
+    chB[3] = "G"
+    chC[3] = "I"
+    fbA[3] = "Wrong!"
+    fbB[3] = "Good!"
+    fbC[3] = "Wrong!"
+
+    qu[4] = "G - H - ?"
+    chA[4] = "J"
+    chB[4] = "L"
+    chC[4] = "I"
+    fbA[4] = "Wrong!"
+    fbB[4] = "Wrong!"
+    fbC[4] = "Good!"
+
+    qu[5] = "I - J - ?"
+    chA[5] = "O"
+    chB[5] = "L"
+    chC[5] = "K"
+    fbA[5] = "Wrong!"
+    fbB[5] = "Wrong!"
+    fbC[5] = "Good!"
+
+    qu[6] = "K - L - ?"
+    chA[6] = "P"
+    chB[6] = "M"
+    chC[6] = "N"
+    fbA[6] = "Wrong!"
+    fbB[6] = "Good!"
+    fbC[6] = "Wrong!"
+
+    qu[7] = "M - N - ?"
+    chA[7] = "P"
+    chB[7] = "S"
+    chC[7] = "O"
+    fbA[7] = "Wrong!"
+    fbB[7] = "Wrong!"
+    fbC[7] = "Good!"
+
+    qu[8] = "O - P - ?"
+    chA[8] = "V"
+    chB[8] = "R"
+    chC[8] = "Q"
+    fbA[8] = "Wrong!"
+    fbB[8] = "Wrong!"
+    fbC[8] = "Good!"
+
+    qu[9] = "Q - R - ?"
+    chA[9] = "S"
+    chB[9] = "T"
+    chC[9] = "X"
+    fbA[9] = "Good!"
+    fbB[9] = "Wrong!"
+    fbC[9] = "Wrong!"
+
+    qu[10] = "S - T - ?"
+    chA[10] = "U"
+    chB[10] = "X"
+    chC[10] = "V"
+    fbA[10] = "Good!"
+    fbB[10] = "Wrong!"
+    fbC[10] = "Wrong!"
+
+    qu[11] = "U - V - ?"
+    chA[11] = "Y"
+    chB[11] = "Z"
+    chC[11] = "W"
+    fbA[11] = "Wrong!"
+    fbB[11] = "Wrong!"
+    fbC[11] = "Good!"
+
+    qu[12] = "X - Y - ?"
+    chA[12] = "W"
+    chB[12] = "Z"
+    chC[12] = "A"
+    fbA[12] = "Wrong!"
+    fbB[12] = "Good!"
+    fbC[12] = "Wrong!"
+    //end data
+    var SC = 0; var Tr = 0; var UA = 0; var UB = 0; var UC = 0; var NQ = 0;
+    function CA() { Tr++; document.feedback.tries.value = Tr; if (fbA[NQ].indexOf("Good!", 0) == 0) { SC++ } else { SC-- } document.feedback.score.value = SC }
+    function CB() { Tr++; document.feedback.tries.value = Tr; if (fbB[NQ].indexOf("Good!", 0) == 0) { SC++ } else { SC-- } document.feedback.score.value = SC }
+    function CC() { Tr++; document.feedback.tries.value = Tr; if (fbC[NQ].indexOf("Good!", 0) == 0) { SC++ } else { SC-- } document.feedback.score.value = SC }
+    function FA() { document.feedback.fb.value = fbA[NQ]; if (UA == 0) { CA(); } UA = 1 }
+    function FB() { document.feedback.fb.value = fbB[NQ]; if (UB == 0) { CB(); } UB = 1 }
+    function FC() { document.feedback.fb.value = fbC[NQ]; if (UC == 0) { CC(); } UC = 1 }
+    function SQ(QN) { UA = 0; UB = 0; UC = 0; NQ = NQ + QN; if (qu[NQ] == null) { document.mc.q.value = "No more questions!"; document.feedback.score.value = SC; document.feedback.fb.value = "You have finished."; document.mc.ca.value = ""; document.mc.cb.value = ""; document.mc.cc.value = "" } else { document.feedback.score.value = SC; document.feedback.fb.value = ""; document.mc.q.value = qu[NQ]; document.mc.ca.value = chA[NQ]; document.mc.cb.value = chB[NQ]; document.mc.cc.value = chC[NQ] } }
+    //-->
+  </script>
+</head>
+
+<body>
+  <section id="grammar-exercises" class="wrapper style3 special">
+    <div class="inner">
+
+      <header class="major">
+        <h2>Alphabet excercises!</h2>
+        <input type="button" onclick="history.back()" name="back" value="BACK">
+      </header>
+
+      <div id="principal">
+        <h1>Abc order - exercises</h1>
+        <h2>What letter comes next?</h2>
+        <form name="mc" id="mc" action="">
+          <p>
+            <textarea name="q" cols="23" rows="2" readonly wrap="virtual" class="text-kelly-top"></textarea>
+          </p>
+          <input type="button" class="button-choice" name="ca" onClick=" FA()">
+          <br>
+          <input type="button" class="button-choice" name="cb" onClick=" FB()">
+          <br>
+          <input type="button" class="button-choice" name="cc" onClick=" FC()">
+          <br>
+          <p>
+            <input name="show" type="button" class="text-area" onclick="SQ(1)" value="Next question">
+
+          </p>
+        </form>
+        <form name="feedback" id="feedback" action="">
+          <p>
+            <textarea name="fb" cols="26" rows="2" wrap="virtual" class="text-kelly-bottom"></textarea>
+          </p>
+          <p><br />
+            <span class="test-resp">Tries</span>:
+            <input name="tries" type="button" onfocus="this.blur()" value="" size="3" />
+            &nbsp;&nbsp;<span class="test-resp">&nbsp;Score:</span>
+            <input type="button" name="score" value="" size="3" onfocus="this.blur()" />
+          </p>
+        </form>
+
+      </div>
+  </section>
+</body>
+
+</html>

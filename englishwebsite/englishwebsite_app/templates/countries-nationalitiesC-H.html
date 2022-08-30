@@ -1,0 +1,329 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/exercises.css' %}" />
+
+    <script language="javascript" type="text/javascript">
+
+
+        var qu = new Array(); var chA = new Array(); var fbA = new Array(); var chB = new Array(); var fbB = new Array(); var chC = new Array(); var fbC = new Array(); var chD = new Array(); var fbD = new Array();
+        //begin data -  The feedback for correct choice must start with "Good!"
+
+        qu[1] = "Cuba."
+        chA[1] = "Croatian"
+        chB[1] = "Cuban"
+        chC[1] = "Costa Rican"
+        chD[1] = "Czech"
+        fbA[1] = "Wrong!"
+        fbB[1] = "Good!"
+        fbC[1] = "Wrong!"
+        fbD[1] = "Wrong!"
+
+        qu[2] = "Cyprus."
+        chA[2] = "Cuban"
+        chB[2] = "Cypriot"
+        chC[2] = "Czech"
+        chD[2] = "Croatian"
+        fbA[2] = "Wrong!"
+        fbB[2] = "Good!"
+        fbC[2] = "Wrong!"
+        fbD[2] = "Wrong!"
+
+        qu[3] = "Czech Republic."
+        chA[3] = "Czech"
+        chB[3] = "Cypriot"
+        chC[3] = "Colombian"
+        chD[3] = "Croatian"
+        fbA[3] = "Good!"
+        fbB[3] = "Wrong!"
+        fbC[3] = "Wrong!"
+        fbD[3] = "Wrong!"
+
+        qu[4] = "Denmark."
+        chA[4] = "Dominican"
+        chB[4] = "Ecuadorian"
+        chC[4] = "Danish"
+        chD[4] = "Czech"
+        fbA[4] = "Wrong!"
+        fbB[4] = "Wrong!"
+        fbC[4] = "Good!"
+        fbD[4] = "Wrong!"
+
+        qu[5] = "Dominican Republic."
+        chA[5] = "Dominican"
+        chB[5] = "Danish"
+        chC[5] = "Egyptian"
+        chD[5] = "English"
+        fbA[5] = "Good!"
+        fbB[5] = "Wrong!"
+        fbC[5] = "Wrong!"
+        fbD[5] = "Wrong!"
+
+        qu[6] = "Ecuador."
+        chA[6] = "Egyptian"
+        chB[6] = "Dominican"
+        chC[6] = "Danish"
+        chD[6] = "Ecuadorian"
+        fbA[6] = "Wrong!"
+        fbB[6] = "Wrong!"
+        fbC[6] = "Wrong!"
+        fbD[6] = "Good!"
+
+        qu[7] = "Egypt."
+        chA[7] = "Salvadoran"
+        chB[7] = "English"
+        chC[7] = "Egyptian"
+        chD[7] = "Ecuadorian"
+        fbA[7] = "Wrong!"
+        fbB[7] = "Wrong!"
+        fbC[7] = "Good!"
+        fbD[7] = "Wrong!"
+
+        qu[8] = "El Salvador."
+        chA[8] = "Slovak"
+        chB[8] = "Slovenian"
+        chC[8] = "Serbian"
+        chD[8] = "Salvadoran"
+        fbA[8] = "Wrong!"
+        fbB[8] = "Wrong!"
+        fbC[8] = "Wrong!"
+        fbD[8] = "Good!"
+
+        qu[9] = "England."
+        chA[9] = "English"
+        chB[9] = "Egyptian"
+        chC[9] = "Estonian"
+        chD[9] = "Ethiopian"
+        fbA[9] = "Good!"
+        fbB[9] = "Wrong!"
+        fbC[9] = "Wrong!"
+        fbD[9] = "Wrong!"
+
+        qu[10] = "Estonia."
+        chA[10] = "Ethiopian"
+        chB[10] = "English"
+        chC[10] = "Eritrean"
+        chD[10] = "Estonian"
+        fbA[10] = "Wrong!"
+        fbB[10] = "Wrong!"
+        fbC[10] = "Wrong!"
+        fbD[10] = "Good!"
+
+        qu[11] = "Ethiopia."
+        chA[11] = "Ethiopian"
+        chB[11] = "English"
+        chC[11] = "Eritrean"
+        chD[11] = "Egyptian"
+        fbA[11] = "Good!"
+        fbB[11] = "Wrong!"
+        fbC[11] = "Wrong!"
+        fbD[11] = "Wrong!"
+
+        qu[12] = "Finland."
+        chA[12] = "French"
+        chB[12] = "Faroese"
+        chC[12] = "Estonian"
+        chD[12] = "Finnish"
+        fbA[12] = "Wrong!"
+        fbB[12] = "Wrong!"
+        fbC[12] = "Wrong!"
+        fbD[12] = "Good!"
+
+        qu[13] = "France."
+        chA[13] = "Finnish"
+        chB[13] = "Faroese"
+        chC[13] = "Fijian"
+        chD[13] = "French"
+        fbA[13] = "Wrong!"
+        fbB[13] = "Wrong!"
+        fbC[13] = "Wrong!"
+        fbD[13] = "Good!"
+
+        qu[14] = "Gambia."
+        chA[14] = "Georgian"
+        chB[14] = "German"
+        chC[14] = "Gambian"
+        chD[14] = "Ghanaian"
+        fbA[14] = "Wrong!"
+        fbB[14] = "Wrong!"
+        fbC[14] = "Good!"
+        fbD[14] = "Wrong!"
+
+        qu[15] = "Georgia."
+        chA[15] = "Georgian"
+        chB[15] = "German"
+        chC[15] = "Gambian"
+        chD[15] = "Grenadian"
+        fbA[15] = "Good!"
+        fbB[15] = "Wrong!"
+        fbC[15] = "Wrong!"
+        fbD[15] = "Wrong!"
+
+        qu[16] = "Germany."
+        chA[16] = "Georgian"
+        chB[16] = "German"
+        chC[16] = "Gambian"
+        chD[16] = "Greenlandic"
+        fbA[16] = "Wrong!"
+        fbB[16] = "Good!"
+        fbC[16] = "Wrong!"
+        fbD[16] = "Wrong!"
+
+        qu[17] = "Ghana."
+        chA[17] = "Georgian"
+        chB[17] = "German"
+        chC[17] = "Ghanaian"
+        chD[17] = "Bosnian"
+        fbA[17] = "Wrong!"
+        fbB[17] = "Wrong!"
+        fbC[17] = "Good!"
+        fbD[17] = "Wrong!"
+
+        qu[18] = "Great Britain."
+        chA[18] = "British"
+        chB[18] = "Belgian"
+        chC[18] = "Irish"
+        chD[18] = "Scottish"
+        fbA[18] = "Good!"
+        fbB[18] = "Wrong!"
+        fbC[18] = "Wrong!"
+        fbD[18] = "Wrong!"
+
+        qu[19] = "Greece."
+        chA[19] = "Greenlandic"
+        chB[19] = "Grenadian"
+        chC[19] = "Guinean"
+        chD[19] = "Greek"
+        fbA[19] = "Wrong!"
+        fbB[19] = "Wrong!"
+        fbC[19] = "Wrong!"
+        fbD[19] = "Good!"
+
+        qu[20] = "Greenland."
+        chA[20] = "Grenadian"
+        chB[20] = "Guinean"
+        chC[20] = "Guatemalan"
+        chD[20] = "Greenlandic"
+        fbA[20] = "Wrong!"
+        fbB[20] = "Wrong!"
+        fbC[20] = "Wrong!"
+        fbD[20] = "Good!"
+
+        qu[21] = "Guatemala."
+        chA[21] = "Grenadian"
+        chB[21] = "Greek"
+        chC[21] = "Guatemalan"
+        chD[21] = "Cuban"
+        fbA[21] = "Wrong!"
+        fbB[21] = "Wrong!"
+        fbC[21] = "Good!"
+        fbD[21] = "Wrong!"
+
+        qu[22] = "Guinea."
+        chA[22] = "Chadian"
+        chB[22] = "Cape Verdean"
+        chC[22] = "Guinean"
+        chD[22] = "Guyanese"
+        fbA[22] = "Wrong!"
+        fbB[22] = "Wrong!"
+        fbC[22] = "Good!"
+        fbD[22] = "Wrong!"
+
+        qu[23] = "Guyana."
+        chA[23] = "Guinean"
+        chB[23] = "Guatemalan"
+        chC[23] = "Guyanese"
+        chD[23] = "Colombian"
+        fbA[23] = "Wrong!"
+        fbB[23] = "Wrong!"
+        fbC[23] = "Good!"
+        fbD[23] = "Wrong!"
+
+        qu[24] = "Haiti."
+        chA[24] = "Honduran"
+        chB[24] = "Haitian"
+        chC[24] = "Hungarian"
+        chD[24] = "Indian"
+        fbA[24] = "Wrong!"
+        fbB[24] = "Good!"
+        fbC[24] = "Wrong!"
+        fbD[24] = "Wrong!"
+
+        qu[25] = "Honduras."
+        chA[25] = "Hungarian"
+        chB[25] = "Honduran"
+        chC[25] = "Haitian"
+        chD[25] = "Chadian"
+        fbA[25] = "Wrong!"
+        fbB[25] = "Good!"
+        fbC[25] = "Wrong!"
+        fbD[25] = "Wrong!"
+        //end data
+        var SC = 0; var Tr = 0; var UA = 0; var UB = 0; var UC = 0; var UD = 0; var UE = 0; var UF = 0; var NQ = 0;
+        function CA() { Tr++; document.feedback.tries.value = Tr; if (fbA[NQ].indexOf("Good!", 0) == 0) { SC++ } else { SC-- } document.feedback.score.value = SC }
+        function CB() { Tr++; document.feedback.tries.value = Tr; if (fbB[NQ].indexOf("Good!", 0) == 0) { SC++ } else { SC-- } document.feedback.score.value = SC }
+        function CC() { Tr++; document.feedback.tries.value = Tr; if (fbC[NQ].indexOf("Good!", 0) == 0) { SC++ } else { SC-- } document.feedback.score.value = SC }
+        function CD() { Tr++; document.feedback.tries.value = Tr; if (fbD[NQ].indexOf("Good!", 0) == 0) { SC++ } else { SC-- } document.feedback.score.value = SC }
+        function CE() { Tr++; document.feedback.tries.value = Tr; if (fbE[NQ].indexOf("Good!", 0) == 0) { SC++ } else { SC-- } document.feedback.score.value = SC }
+        function CF() { Tr++; document.feedback.tries.value = Tr; if (fbF[NQ].indexOf("Good!", 0) == 0) { SC++ } else { SC-- } document.feedback.score.value = SC }
+        function FA() { document.feedback.fb.value = fbA[NQ]; if (UA == 0) { CA(); } UA = 1 }
+        function FB() { document.feedback.fb.value = fbB[NQ]; if (UB == 0) { CB(); } UB = 1 }
+        function FC() { document.feedback.fb.value = fbC[NQ]; if (UC == 0) { CC(); } UC = 1 }
+        function FD() { document.feedback.fb.value = fbD[NQ]; if (UD == 0) { CD(); } UD = 1 }
+        function FE() { document.feedback.fb.value = fbE[NQ]; if (UE == 0) { CE(); } UE = 1 }
+        function FF() { document.feedback.fb.value = fbF[NQ]; if (UF == 0) { CF(); } UF = 1 }
+        function SQ(QN) { UA = 0; UB = 0; UC = 0; UD = 0; UE = 0; UF = 0; NQ = NQ + QN; if (qu[NQ] == null) { document.mc.q.value = "No more questions!\nCLOSE this window and do more exercises."; document.feedback.score.value = SC; document.feedback.fb.value = "You have finished."; document.mc.ca.value = ""; document.mc.cb.value = ""; document.mc.cc.value = ""; document.mc.cd.value = ""; document.mc.ce.value = ""; document.mc.cf.value = "" } else { document.feedback.score.value = SC; document.feedback.fb.value = ""; document.mc.q.value = qu[NQ]; document.mc.ca.value = chA[NQ]; document.mc.cb.value = chB[NQ]; document.mc.cc.value = chC[NQ]; document.mc.cd.value = chD[NQ]; document.mc.ce.value = chE[NQ]; document.mc.cf.value = chF[NQ] } }
+    //-->
+    </script>
+</head>
+
+<body>
+    <section id="vocabulary-exercises" class="wrapper style3 special">
+        <div class="inner">
+
+            <header class="major">
+                <h2>Vocabulary excercises!</h2>
+                <input type="button" onclick="history.back()" name="back" value="BACK">
+            </header>
+            <div id="principal">
+                <h1>Countries - Nationalities 2</h1>
+                <form name="mc" id="mc" action="">
+                    <p>
+                        <textarea name="q" cols="23" rows="2" readonly wrap="virtual" class="text-kelly-top"></textarea>
+                    </p>
+                    <input type="button" class="button-choice" name="ca" onClick=" FA()">
+                    <br>
+                    <input type="button" class="button-choice" name="cb" onClick=" FB()">
+                    <br>
+                    <input type="button" class="button-choice" name="cc" onClick=" FC()">
+                    <br>
+                    <input type="button" class="button-choice" name="cd" onClick=" FD()">
+                    <br>
+                    <p>
+                        <input name="show" type="button" class="text-area" onclick="SQ(1)" value="Next question">
+                    <p>;</p>
+                    </p>
+                </form>
+                <form name="feedback" id="feedback" action="">
+                    <p>
+                        <textarea name="fb" cols="26" rows="2" wrap="virtual" class="text-kelly-bottom"></textarea>
+                    </p>
+                    <p><br />
+                        <span class="test-resp">Tries</span>:
+                        <input name="tries" type="button" onfocus="this.blur()" value="" size="3" />
+                        ;;<span class="test-resp">;Score:</span>
+                        <input type="button" name="score" value="" size="3" onfocus="this.blur()" />
+                    </p>
+                </form>
+               
+            </div>
+
+
+
+    </section>
+</body>
+
+</html>

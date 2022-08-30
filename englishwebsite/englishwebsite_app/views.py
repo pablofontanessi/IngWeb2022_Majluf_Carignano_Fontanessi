@@ -41,3 +41,27 @@ def reading(request):
 @login_required
 def listening(request):
 	return render(request,'listening.html')
+
+@login_required
+def grammarExercices(request):
+	return render(request,'grammar-exercises.html')
+
+@login_required
+def alphabetExercises(request):
+	return render(request,'alphabet-exercises.html')
+
+@login_required
+def articlesExercises(request):
+	return render(request,'articles.html')
+
+@login_required
+def vocabularyExercises(request):
+	return render(request,'vocabulary-exercises.html')
+
+@login_required
+def nacionalitiesExercisesAtoC(request):
+	return render(request,'countries-nationalitiesAtoC.html')
+
+@login_required
+def nacionalitiesExercisesCtoH(request):
+	return render(request,'countries-nationalitiesC-H.html')

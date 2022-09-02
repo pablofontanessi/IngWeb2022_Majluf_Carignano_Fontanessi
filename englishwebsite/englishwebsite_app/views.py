@@ -1,10 +1,13 @@
+from unicodedata import category
 from django.shortcuts import  render, redirect
+from .models import Post
 from .forms import UserRegisterForm
 from django.contrib.auth import login
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.views.generic import ListView, DetailView
 
-# Create your views here.
+# Create your views here.W
 
 def base(request):
     return render(request,'base.html',)
@@ -30,9 +33,13 @@ def register(request):
 	context = { 'form' : form }
 	return render(request, 'register.html', context)
 
+
+
+
 @login_required
 def writing(request):
-	return render(request,'writing.html')
+	WrittingExercises = Post.objects.filter(category=1)
+	return render(request,'writing.html',{'exercise_list': WrittingExercises})
 
 @login_required
 def reading(request):

@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from englishwebsite_app import views
 from django.views.generic.base import TemplateView
+#from englishwebsite_app.views import WrittingPostViws
 
 urlpatterns = [
     path('', views.base),

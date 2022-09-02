@@ -22,6 +22,14 @@
 				  <li><a href="grammar-exercises">Grammar exercises</a></li>
 				  <li><a href="vocabulary-exercises">Vocabulary exercises</a></li>
 				</ul>
+				<ul>
+					{% for exercise in exercise_list %}
+					<li>{{exercise.title_exercise}} - {{exercise.category}} 
+						<br/>
+						{{exercise.description_exercise}}
+					</li>
+					{% endfor%}
+				</ul>
 		</div>
 	</section>
 </body>

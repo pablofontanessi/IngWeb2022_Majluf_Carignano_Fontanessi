@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from englishwebsite_app import views
 from django.views.generic.base import TemplateView
-#from englishwebsite_app.views import WrittingPostViws
+#from englishwebsite_app.views import WrittingExercise_detail
 
 urlpatterns = [
     path('', views.base),
@@ -17,7 +17,9 @@ urlpatterns = [
     path('vocabulary-exercises',views.vocabularyExercises),
     path('countries-nationalitiesAtoC',views.nacionalitiesExercisesAtoC),
     path('countries-nationalitiesC-H',views.nacionalitiesExercisesCtoH),
-    
+    #path('writing/exercises/<int:pk>',WrittingExercise_detail.as_view(), name= 'exercise-detail' ),
+
+
     #user register
     path('register/', views.register), 
 

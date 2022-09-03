@@ -24,9 +24,16 @@
 				</ul>
 				<ul>
 					{% for exercise in exercise_list %}
-					<li>{{exercise.title_exercise}} - {{exercise.category}} 
+					<li> {{exercise.title_exercise}} - {{exercise.description_exercise}} 
 						<br/>
-						{{exercise.description_exercise}}
+						<details>
+							<summary>Details</summary>
+							<p>{{exercise.activity}}</p>
+							<details>
+								<summary>Correct answer</summary>
+								<p>{{exercise.correct_answer}}</p>
+							</details>
+						</details>
 					</li>
 					{% endfor%}
 				</ul>

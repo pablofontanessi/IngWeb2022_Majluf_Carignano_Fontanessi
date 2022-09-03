@@ -41,6 +41,7 @@ def writing(request):
 	WrittingExercises = Post.objects.filter(category=1)
 	return render(request,'writing.html',{'exercise_list': WrittingExercises})
 
+
 @login_required
 def reading(request):
 	return render(request,'reading.html')
@@ -72,3 +73,19 @@ def nacionalitiesExercisesAtoC(request):
 @login_required
 def nacionalitiesExercisesCtoH(request):
 	return render(request,'countries-nationalitiesC-H.html')
+
+
+@login_required
+def create_exercise_writing(request):
+	if request.method == 'POST':
+		form = WritingExerciseForm(request.POST)
+		if form.is_valid():
+			
+			username = form.cleaned_data['username']
+			messages.success(request, f'Usuario {username} creado')
+			return redirect('/writing')
+	else:
+		form = UserRegisterForm()        
+
+	context = { 'form' : form }
+	return render(request, 'register.html', context)

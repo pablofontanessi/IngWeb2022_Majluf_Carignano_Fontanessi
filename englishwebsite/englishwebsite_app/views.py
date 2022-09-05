@@ -1,7 +1,7 @@
 from unicodedata import category
 from django.shortcuts import  render, redirect
 from .models import Post
-from .forms import UserRegisterForm
+from .forms import UserRegisterForm, CreateNewExercise
 from django.contrib.auth import login
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -76,16 +76,15 @@ def nacionalitiesExercisesCtoH(request):
 
 
 @login_required
-def create_exercise_writing(request):
+def create_exercise(request):
 	if request.method == 'POST':
-		form = WritingExerciseForm(request.POST)
+		form = CreateNewExercise(request.POST)
 		if form.is_valid():
-			
-			username = form.cleaned_data['username']
-			messages.success(request, f'Usuario {username} creado')
-			return redirect('/writing')
+			form.save()
+			return redirect('/homelogin')
 	else:
-		form = UserRegisterForm()        
-
-	context = { 'form' : form }
-	return render(request, 'register.html', context)
+		form = CreateNewExercise()
+		 
+	
+	
+	return render(request,'createExercises.html', {'form':form})

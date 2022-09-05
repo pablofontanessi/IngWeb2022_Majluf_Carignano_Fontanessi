@@ -17,6 +17,7 @@ urlpatterns = [
     path('vocabulary-exercises',views.vocabularyExercises),
     path('countries-nationalitiesAtoC',views.nacionalitiesExercisesAtoC),
     path('countries-nationalitiesC-H',views.nacionalitiesExercisesCtoH),
+    path('createExercises',views.create_exercise),
     #path('writing/exercises/<int:pk>',WrittingExercise_detail.as_view(), name= 'exercise-detail' ),
 
 

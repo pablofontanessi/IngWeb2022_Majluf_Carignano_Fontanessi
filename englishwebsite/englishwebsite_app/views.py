@@ -1,6 +1,6 @@
 from unicodedata import category
 from django.shortcuts import  render, redirect
-from .models import Post
+from .models import Post, Exercise_Category
 from .forms import UserRegisterForm, CreateNewExercise
 from django.contrib.auth import login
 from django.contrib import messages

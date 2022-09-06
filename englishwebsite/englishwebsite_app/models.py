@@ -36,7 +36,7 @@ class Post(models.Model):
     activity = models.TextField('Activity',blank=False, max_length= 500)
     correct_answer = models.TextField('Correct answer',blank=True, max_length= 500)
     file = models.FileField(upload_to='uploads')
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    #author = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.ForeignKey(Exercise_Category, on_delete=models.CASCADE)
     available = models.BooleanField('Published/No Published', default= True)
     creation_date = models.DateField('Creation date', auto_now= False, auto_now_add= True)

@@ -4,7 +4,7 @@ from django import forms
 from django.forms import ModelForm, ModelChoiceField
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Post, User, Exercise_Category
+from .models import Post, Exercise_Category
 
 
 

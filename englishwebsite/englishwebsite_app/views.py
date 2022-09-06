@@ -1,7 +1,7 @@
 from unicodedata import category
 from django.shortcuts import  render, redirect
-from .models import Post
-from .forms import UserRegisterForm
+from .models import Post, Exercise_Category
+from .forms import UserRegisterForm, CreateNewExercise
 from django.contrib.auth import login
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -38,17 +38,23 @@ def register(request):
 
 @login_required
 def writing(request):
-	WrittingExercises = Post.objects.filter(category=1)
+	WrittingExercises = Post.objects.filter(category =1)
 	return render(request,'writing.html',{'exercise_list': WrittingExercises})
 
 
 @login_required
 def reading(request):
-	return render(request,'reading.html')
+	ReadingExercises = Post.objects.filter(category = 3)
+	return render(request,'reading.html',{'exercise_list': ReadingExercises})
 
 @login_required
 def listening(request):
-	return render(request,'listening.html')
+	ListeningExercises = Post.objects.filter(category = 2)
+	return render(request,'listening.html',{'exercise_list': ListeningExercises})
+@login_required
+def speaking(request):
+	SpeakingExercises = Post.objects.filter(category = 4)
+	return render(request,'speaking.html',{'exercise_list': SpeakingExercises})
 
 @login_required
 def grammarExercices(request):
@@ -76,16 +82,17 @@ def nacionalitiesExercisesCtoH(request):
 
 
 @login_required
-def create_exercise_writing(request):
+def create_exercise(request):
 	if request.method == 'POST':
-		form = WritingExerciseForm(request.POST)
+		form = CreateNewExercise(request.POST,request.FILES)
+		
 		if form.is_valid():
 			
-			username = form.cleaned_data['username']
-			messages.success(request, f'Usuario {username} creado')
-			return redirect('/writing')
+			form.save()
+			return redirect('/homelogin')
 	else:
-		form = UserRegisterForm()        
-
-	context = { 'form' : form }
-	return render(request, 'register.html', context)
+		form = CreateNewExercise()
+		 
+	
+	
+	return render(request,'createExercises.html', {'form':form})

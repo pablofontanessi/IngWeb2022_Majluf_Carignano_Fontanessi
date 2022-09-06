@@ -13,35 +13,25 @@
 
 			<header class="major">
 				<h2>READING EXERCISES</h2>
-				<p>Click here, for more exercises to practise.</p>
+				
 				<input type="button" onclick="history.back()" name="back" value="BACK TO MAIN">
 			</header>
 
-			<ul class="exercises">
-				<li class="reading1">
-					<h3>Reading 1</h3>
-					<p>Rellenar con preview de ejercicio 1 -- Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-						Beatae iste odit, commodi quos nemo iure ipsum similique ducimus vero voluptatem possimus non doloremque 
-						magnam reprehenderit repellat magni tempora, aut repudiandae..</p>
+			<ul>
+				{% for exercise in exercise_list %}
+				<li> {{exercise.title_exercise}} - {{exercise.description_exercise}} 
+					<br/>
+					<details>
+						<summary>Details</summary>
+						<p>{{exercise.activity}}</p>
+						<img src= '{{MEDIA_URL}}{{exercise.file}}' alt="Image for the activiy. If it doesn't exist, you will see this message">
+						<details>
+							<summary>Correct answer</summary>
+							<p>{{exercise.correct_answer}}</p>
+						</details>
+					</details>
 				</li>
-				<li class="reading2">
-					<h3>Reading 2</h3>
-					<p>Rellenar con preview de ejercicio 2 -- Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-						Beatae iste odit, commodi quos nemo iure ipsum similique ducimus vero voluptatem possimus non doloremque 
-						magnam reprehenderit repellat magni tempora, aut repudiandae..</p>
-				</li>
-				<li class="reading3">
-					<h3>Reading 3</h3>
-					<p>Rellenar con preview de ejercicio 3 -- Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-						Beatae iste odit, commodi quos nemo iure ipsum similique ducimus vero voluptatem possimus non doloremque 
-						magnam reprehenderit repellat magni tempora, aut repudiandae..</p>
-				</li>
-				<li class="reading4">
-					<h3>Reading 4</h3>
-					<p>Rellenar con preview de ejercicio 4 -- Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-						Beatae iste odit, commodi quos nemo iure ipsum similique ducimus vero voluptatem possimus non doloremque 
-						magnam reprehenderit repellat magni tempora, aut repudiandae..</p>
-				</li>
+				{% endfor%}
 			</ul>
 		</div>
 	</section>

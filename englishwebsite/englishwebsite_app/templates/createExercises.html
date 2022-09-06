@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/exercises.css' %}" />
+</head>
+
+<body>
+	<section id="writingexercises" class="wrapper style3 special">
+		<div class="inner">
+
+			<header class="major">
+				<h2>CREATE YOUR EXERCISES!</h2>
+				<input type="button" onclick="history.back()" name="back" value="BACK TO MAIN">
+			</header>
+            <form method="post", action="/createExercises" enctype="multipart/form-data">
+                {% csrf_token %}  
+                {{form.as_p}}  
+                <button type="submit", name="CREATE">CREATE EXERCISE</button>
+            </form>
+	
+	</section>
+</body>
+
+</html>

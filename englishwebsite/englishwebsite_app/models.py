@@ -35,7 +35,7 @@ class Post(models.Model):
     description_exercise = models.CharField('Description', max_length= 500, blank= False, null=False)
     activity = models.TextField('Activity',blank=False, max_length= 500)
     correct_answer = models.TextField('Correct answer',blank=True, max_length= 500)
-    image = models.URLField(max_length= 255, blank= True)
+    file = models.FileField(upload_to='uploads')
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.ForeignKey(Exercise_Category, on_delete=models.CASCADE)
     available = models.BooleanField('Published/No Published', default= True)

@@ -15,7 +15,7 @@
 				<h2>CREATE YOUR EXERCISES!</h2>
 				<input type="button" onclick="history.back()" name="back" value="BACK TO MAIN">
 			</header>
-            <form method="post", action="/createExercises">
+            <form method="post", action="/createExercises" enctype="multipart/form-data">
                 {% csrf_token %}  
                 {{form.as_p}}  
                 <button type="submit", name="CREATE">CREATE EXERCISE</button>

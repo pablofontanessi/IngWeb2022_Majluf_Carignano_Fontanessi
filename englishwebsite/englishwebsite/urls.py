@@ -2,6 +2,8 @@ from django.contrib import admin
 from django.urls import path, include
 from englishwebsite_app import views
 from django.views.generic.base import TemplateView
+from django.conf.urls.static import static
+from django.conf import settings
 #from englishwebsite_app.views import WrittingExercise_detail
 
 urlpatterns = [
@@ -11,6 +13,7 @@ urlpatterns = [
     path('writing', views.writing),
     path('reading', views.reading),
     path('listening', views.listening),
+    path('speaking', views.speaking),
     path('grammar-exercises', views.grammarExercices),
     path('alphabet-exercises',views.alphabetExercises),
     path('articles-exercises',views.articlesExercises),
@@ -27,3 +30,5 @@ urlpatterns = [
     #auth login
     path("accounts/", include("django.contrib.auth.urls")),
 ]
+
+urlpatterns+= static(settings .MEDIA_URL,document_root = settings.MEDIA_ROOT)

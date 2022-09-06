@@ -38,17 +38,23 @@ def register(request):
 
 @login_required
 def writing(request):
-	WrittingExercises = Post.objects.filter(category=1)
+	WrittingExercises = Post.objects.filter(category =1)
 	return render(request,'writing.html',{'exercise_list': WrittingExercises})
 
 
 @login_required
 def reading(request):
-	return render(request,'reading.html')
+	ReadingExercises = Post.objects.filter(category = 3)
+	return render(request,'reading.html',{'exercise_list': ReadingExercises})
 
 @login_required
 def listening(request):
-	return render(request,'listening.html')
+	ListeningExercises = Post.objects.filter(category = 2)
+	return render(request,'listening.html',{'exercise_list': ListeningExercises})
+@login_required
+def speaking(request):
+	SpeakingExercises = Post.objects.filter(category = 4)
+	return render(request,'speaking.html',{'exercise_list': SpeakingExercises})
 
 @login_required
 def grammarExercices(request):
@@ -78,8 +84,10 @@ def nacionalitiesExercisesCtoH(request):
 @login_required
 def create_exercise(request):
 	if request.method == 'POST':
-		form = CreateNewExercise(request.POST)
+		form = CreateNewExercise(request.POST,request.FILES)
+		
 		if form.is_valid():
+			
 			form.save()
 			return redirect('/homelogin')
 	else:

@@ -8,14 +8,15 @@
 </head>
 
 <body>
-	<section id="listeningexercises" class="wrapper style3 special">
+	<section id="speakingexercises" class="wrapper style3 special">
 		<div class="inner">
 
 			<header class="major">
-				<h2>LISTENING EXERCISES</h2>
+				<h2>SPEAKING EXERCISES</h2>
 				
 				<input type="button" onclick="history.back()" name="back" value="BACK TO MAIN">
 			</header>
+
 			<ul>
 				{% for exercise in exercise_list %}
 				<li> {{exercise.title_exercise}} - {{exercise.description_exercise}} 
@@ -23,9 +24,7 @@
 					<details>
 						<summary>Details</summary>
 						<p>{{exercise.activity}}</p>
-						<audio controls>
-							<source src='{{MEDIA_URL}}{{exercise.file}}' type="audio/mp3" >
-						</audio>
+						<img src= '{{MEDIA_URL}}{{exercise.file}}' alt="Image for the activiy. If it doesn't exist, you will see this message">
 						<details>
 							<summary>Correct answer</summary>
 							<p>{{exercise.correct_answer}}</p>
@@ -34,7 +33,6 @@
 				</li>
 				{% endfor%}
 			</ul>
-			
 		</div>
 	</section>
 </body>

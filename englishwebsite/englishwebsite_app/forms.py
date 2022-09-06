@@ -1,9 +1,11 @@
+from asyncore import file_dispatcher
 from dataclasses import fields
 from django import forms
 from django.forms import ModelForm, ModelChoiceField
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import Post, User, Exercise_Category
+
 
 
 class UserRegisterForm(UserCreationForm):
@@ -24,7 +26,9 @@ class CreateNewExercise(ModelForm):
 	correct_answer = forms.CharField(max_length= 500,widget=forms.Textarea)
 	author = forms.ModelChoiceField(queryset=User.objects.all(), empty_label=None)
 	category = forms.ModelChoiceField(queryset=Exercise_Category.objects.all(), empty_label=None)
+	file = forms.FileField()
+
 
 	class Meta:
 		model= Post
-		fields=['title_exercise','description_exercise','activity','correct_answer','author','category' ]
+		fields=['title_exercise','description_exercise','activity','correct_answer','author','category','file' ]

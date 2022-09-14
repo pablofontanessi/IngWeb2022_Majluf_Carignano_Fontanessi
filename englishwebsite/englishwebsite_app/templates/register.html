@@ -1,11 +1,22 @@
-
 {% block content %}
+{% load crispy_forms_tags %}
 
-<form class="form" method="post">
-	{% csrf_token %}
-	{{ form.as_p }}
-
-	<button type="submit" id="submit">Registrarse</button>
-</form>
+<div>
+	<form class="form" method="post">
+		{% csrf_token %}
+			<fieldset class="form-group">
+				<legend class="border-buttom mb-4">Register!</legend>
+				{{ form|crispy }}
+			</fieldset>
+			<div class="form-group">
+				<button class="btn btn-outline-info" type="submit">Register</button>
+			</div>
+	</form>
+</div>
+<div class="border-top pt-3">
+	<small class="text-muted">
+		Already have and account? <a class="ml-2" href="/accounts/login/">Sign in</a>
+	</small>
+</div>
 
 {% endblock %}

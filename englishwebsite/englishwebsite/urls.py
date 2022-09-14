@@ -3,7 +3,7 @@ from django.urls import path, include
 from englishwebsite_app import views
 from django.views.generic.base import TemplateView
 from django.conf.urls.static import static
-from django.conf import settings
+from django.conf import settings 
 #from englishwebsite_app.views import WrittingExercise_detail
 
 urlpatterns = [
@@ -23,9 +23,10 @@ urlpatterns = [
     path('createExercises',views.create_exercise),
     #path('writing/exercises/<int:pk>',WrittingExercise_detail.as_view(), name= 'exercise-detail' ),
 
-
     #user register
-    path('register/', views.register), 
+    path('register/', views.register),
+    path('activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/',  
+    views.activate, name='activate'),   
 
     #auth login
     path("accounts/", include("django.contrib.auth.urls")),

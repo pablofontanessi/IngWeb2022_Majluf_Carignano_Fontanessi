@@ -6,6 +6,7 @@
         {% if user.is_superuser %}
         <li class="nav-item active"><a class="nav-link js-scroll-trigger" href="/admin"><big> ADMIN </big></a></li>
         {% endif %}
+        <li class="nav-item active"><a class="nav-link js-scroll-trigger" href="/professors"><big> PROFESSORS </big></a></li>
     </ul>
     <ul class="navbar-nav ml-auto nav-flex-icons right">
         {% if request.user.is_authenticated %}

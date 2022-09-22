@@ -2,31 +2,29 @@
 
 <!DOCTYPE html>
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        {% if user.is_superuser %}
-        <li class="nav-item active"><a class="nav-link js-scroll-trigger" href="/admin"><big> ADMIN </big></a></li>
-        {% endif %}
-        <li class="nav-item active"><a class="nav-link js-scroll-trigger" href="/professors"><big> PROFESSORS </big></a></li>
-    </ul>
-    <ul class="navbar-nav ml-auto nav-flex-icons right">
-        {% if request.user.is_authenticated %}
-            <li class="nav-item dropdown"></li>
-                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-user"></i>
-                    <big>{{ user.username }}</big>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+    <a class="navbar-brand" href="#">ENGLISHWEBSITE</a>
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">        
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            {% if user.is_superuser %}
+            <li class="nav-item active"><a class="nav-link js-scroll-trigger" href="/admin"><big> ADMIN </big></a></li>
+            {% endif %}
+            <li class="nav-item active"><a class="nav-link js-scroll-trigger" href="/professors"><big> PROFESSORS </big></a></li>
+            {% if request.user.is_authenticated %}
+            <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><big> ACTIVITIES </big></a>
+                <div class="dropdown-menu">
                     <a class="dropdown-item" href="writing">WRITING</a>
                     <a class="dropdown-item" href="reading">READING</a>
                     <a class="dropdown-item" href="listening">LISTENING</a>
                     <a class="dropdown-item" href="speaking">SPEAKING</a>
-                    <a class="dropdown-item" href="createExercises">CREATE EXERCISES</a>
-                    <a class="dropdown-item" href="{% url 'logout' %}">LOG OUT</a>
+                    <a class="dropdown-item" href="createExercises">CREATE EXERCISES</a>     
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'logout' %}">LOG OUT</a>
                 </div>
             </li>
             
         {% else %}
-            <li class="nav-item dropdown">
+            {% comment %} <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-user"></i>
                     <big>Log In</big>
@@ -35,7 +33,21 @@
                     <a class="dropdown-item text-dark" href="/accounts/login/">LOG IN</a>
                     <a class="dropdown-item text-dark" href="/register/">REGISTER</a>
                 </div>
+            </li> {% endcomment %}
+            <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><big> LOG IN </big></a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item text-dark" href="/accounts/login/">LOG IN</a>
+                    <a class="dropdown-item text-dark" href="/register/">REGISTER</a>      
             </li>
         {% endif %}
+        <div/>
     </ul>
+    {% comment %} <ul class="navbar-nav ml-auto nav-flex-icons right">
+        
+    </ul> {% endcomment %}
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">SEARCH</button>
+    </form>
 </nav>

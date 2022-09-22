@@ -1,22 +1,50 @@
 {% load static %}
+{% load crispy_forms_tags %}
 
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="{% static '/css/login.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/login-register.css' %}"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" 
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <!-- Bootswatch-->
+    <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.min.css' %}"/>
+
 </head>
 
 <body>
-    <h2>Log In</h2>
-
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" href="/registration/login/">Log In</button>
-    </form>
+        <fieldset class="form-group">
+            <legend class="border-buttom mb-2">LOG IN</legend>
+            {{ form|crispy }}
+        </fieldset>
+        <button type="submit" class="btn btn-primary" href="/registration/login/">Confirm</button>
+    </form> 
+    {% comment %} <form class="form-inline" method="post">
+        {% csrf_token %}
+        <div class="form-group mx-sm-3">
+            <label for="inputUser" class="sr-only">User</label>
+            <input type="password" class="form-control" id="inputUser" placeholder="Username">
+        </div>
+        <div class="form-group mx-sm-3">
+            <label for="inputPass" class="sr-only">Password</label>
+            <input type="password" class="form-control" id="inputPass" placeholder="Password">
+        </div>
+        <div class="form-group mx-sm-3">
+            
+            <button type="submit" href="/registration/login/" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3">Confirm</button>
 
+            <a class="text-muted" href="/base/">Forgot password?</a>
+        </div>
+        <div class="d-flex align-items-center justify-content-center pb-4">
+            <p class="mb-0 me-2">Don't have an account?</p>
+            <button type="button" class="btn btn-outline-danger">Create new</button>
+        </div>
+    </form> {% endcomment %}
 </body>
 
 </html>

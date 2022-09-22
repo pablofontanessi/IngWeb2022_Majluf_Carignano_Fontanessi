@@ -1,22 +1,40 @@
-{% block content %}
 {% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/login-register.css' %}"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" 
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <!-- Bootswatch-->
+    <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.min.css' %}"/>
+
+</head>
 
 <div>
 	<form class="form" method="post">
 		{% csrf_token %}
 			<fieldset class="form-group">
-				<legend class="border-buttom mb-4">Register!</legend>
+				<legend class="border-buttom mb-2">REGISTER</legend>
 				{{ form|crispy }}
 			</fieldset>
 			<div class="form-group">
-				<button class="btn btn-outline-info" type="submit">Register</button>
+				<button class="btn btn-primary" type="submit">Confirm</button>
 			</div>
+			<div class="d-flex align-items-center justify-content-center pb-4">
+				<small class="text-muted">
+					Already have and account? <a class="ml-2" href="/accounts/login/">Sign in</a>
+				</small>
+			</div>
+			{% comment %} <div class="d-flex align-items-center justify-content-center pb-4">
+				<p class="mb-0 me-2">Don't have an account?</p>
+				<button type="button" class="btn btn-outline-danger">Create new</button>
+			</div> {% endcomment %}
 	</form>
 </div>
-<div class="border-top pt-3">
-	<small class="text-muted">
-		Already have and account? <a class="ml-2" href="/accounts/login/">Sign in</a>
-	</small>
-</div>
+
 
 {% endblock %}
+

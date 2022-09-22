@@ -30,6 +30,9 @@ urlpatterns = [
 
     #auth login
     path("accounts/", include("django.contrib.auth.urls")),
+
+    #professors
+    path("professors/", views.professors),
 ]
 
 urlpatterns+= static(settings .MEDIA_URL,document_root = settings.MEDIA_ROOT)

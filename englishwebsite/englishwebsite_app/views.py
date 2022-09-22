@@ -29,9 +29,6 @@ def register(request):
 	if request.method == 'POST':
 		form = UserRegisterForm(request.POST)
 		if form.is_valid():
-			#form.save()
-			#login(request, user = form.save())
-
 			# save form in the memory not in database  
 				user = form.save(commit = False)  
 				user.is_active = False  
@@ -61,7 +58,7 @@ def register(request):
                 )
 
 				return HttpResponse('Please confirm your email address to complete the registration')  
-				#return redirect('/homelogin')
+
 	else:
 		form = UserRegisterForm()        
 
@@ -139,7 +136,10 @@ def create_exercise(request):
 			return redirect('/homelogin')
 	else:
 		form = CreateNewExercise()
-		 
 	
 	
 	return render(request,'createExercises.html', {'form':form})
+
+# sin login_requered, para que si alguien entra, sin loguearse al menos pueda leer sobre los profesores.
+def professors(request):
+    return render(request,'professors.html',)

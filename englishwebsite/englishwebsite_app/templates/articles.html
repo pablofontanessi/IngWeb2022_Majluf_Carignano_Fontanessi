@@ -4,7 +4,15 @@
 <html>
 
 <head>
-  <link rel="stylesheet" type="text/css" href="{% static 'css/exercises.css' %}" />
+	{% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/exercises.css' %}" /> {% endcomment %}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% comment %} <link rel="stylesheet" type="text/css" href="{% static '/css/login-register.css' %}"/> {% endcomment %}
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" 
+  integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <!-- Bootswatch-->
+  <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.min.css' %}"/>	
+  
   <script language="javascript" type="text/javascript">
 
     var qu = new Array(); var chA = new Array(); var fbA = new Array(); var chB = new Array(); var fbB = new Array();
@@ -108,11 +116,19 @@
   <section id="grammar-exercises" class="wrapper style3 special">
     <div class="inner">
 
-      <header class="major">
+      {% comment %} <header class="major">
         <h2>A - AN excercises!</h2>
         <input type="button" onclick="history.back()" name="back" value="BACK">
-      </header>
-
+      </header> {% endcomment %}
+      <div class="jumbotron">
+				<h1 class="display-3">A -AN EXERCISES!</h1>
+				<p class="lead">In this section you can see the a/an exercises..</p>
+				<hr class="my-4">
+				<p>If you dont want to see these exercises you can go back.</p>
+				<p class="lead">
+				<a class="btn btn-primary btn-lg" href="grammar-exercises" role="button">GO BACK</a>
+				</p>
+			</div>
       <div id="principal">
         <h1>a / an - exercises</h1>
         <form name="mc" id="mc" action="">

@@ -3,23 +3,45 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-	<link rel="stylesheet" type="text/css" href="{% static 'css/exercises.css' %}" />
-</head>
+	<head>
+		{% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/exercises.css' %}" /> {% endcomment %}
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="{% static '/css/login-register.css' %}"/>
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" 
+		integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+		<!-- Bootswatch-->
+		<link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.min.css' %}"/>	
+	</head>
 
 <body>
 	<section id="grammar-exercises" class="wrapper style3 special">
 		<div class="inner">
 
-			<header class="major">
+			{% comment %} <header class="major">
 				<h2>Grammar excercises!</h2>
 				<input type="button" onclick="history.back()" name="back" value="BACK">
-			</header>
-
-			<ul>
+			</header> {% endcomment %}
+			<div class="jumbotron">
+				<h1 class="display-3">GRAMMAR EXERCISES!</h1>
+				<p class="lead">In this section you can see the grammar exercises..</p>
+				<hr class="my-4">
+				<p>If you dont want to see these exercises you can go back.</p>
+				<p class="lead">
+				<a class="btn btn-primary btn-lg" href="writing" role="button">GO BACK</a>
+				</p>
+			</div>
+			{% comment %} <ul>
                 <li><a href="alphabet-exercises">Alphabet</a></li>
                 <li><a href="articles-exercises">Articles: a / an</a></li>
-            </ul>
+            </ul> {% endcomment %}
+			<div id="principal">
+				<h2>Alphabet and Articles - Exercises for all levels!</h2>
+				<div class="list-group">
+					<a href="alphabet-exercises" class="list-group-item list-group-item-action">Alphabet exercises</a>
+					<a href="articles-exercises" class="list-group-item list-group-item-action">Articles: a / an</a>
+				</div>
+			</div>
 	</section>
 </body>
 

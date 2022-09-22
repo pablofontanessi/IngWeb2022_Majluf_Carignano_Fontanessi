@@ -1,24 +1,41 @@
 {% load static %}
+{% load crispy_forms_tags %}
 
 <!DOCTYPE html>
 <html>
 
-<head>
-	<link rel="stylesheet" type="text/css" href="{% static 'css/exercises.css' %}" />
-</head>
+	<head>
+		{% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/exercises.css' %}" /> {% endcomment %}
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		{% comment %} <link rel="stylesheet" type="text/css" href="{% static '/css/login-register.css' %}"/> {% endcomment %}
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" 
+		integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+		<!-- Bootswatch-->
+		<link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.min.css' %}"/>
+	</head>
 
 <body>
 	<section id="writingexercises" class="wrapper style3 special">
 		<div class="inner">
-
-			<header class="major">
+			{% comment %} <header class="major">
 				<h2>CREATE YOUR EXERCISES!</h2>
 				<input type="button" onclick="history.back()" name="back" value="BACK TO MAIN">
-			</header>
+			</header> {% endcomment %}
+			<div class="jumbotron">
+				<h1 class="display-3">CREATE YOUR EXERCISES!</h1>
+				<p class="lead">In this section you can create your excercises...</p>
+				<hr class="my-4">
+				<p>If you dont want to create them, you can go back to hompage.</p>
+				<p class="lead">
+				<a class="btn btn-primary btn-lg" href="homelogin" role="button">HOMEPAGE</a>
+				</p>
+			</div>
             <form method="post", action="/createExercises" enctype="multipart/form-data">
                 {% csrf_token %}  
-                {{form.as_p}}  
-                <button type="submit", name="CREATE">CREATE EXERCISE</button>
+                {% comment %} {{form.as_p}}  {% endcomment %}
+				{{ form|crispy }} 
+                <button type="submit" class="btn btn-primary btn-lg" name="CREATE">CREATE EXERCISE</button>
             </form>
 	
 	</section>

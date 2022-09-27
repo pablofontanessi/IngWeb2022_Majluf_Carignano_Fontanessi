@@ -1,20 +1,6 @@
 from django.db import models
 
 # Create your models here.
-
-class User(models.Model):
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    birthdate = models.DateTimeField()
-
-    class Meta: 
-        verbose_name = 'User'
-        verbose_name_plural = 'Users'
-
-    def __str__(self):
-        return self.first_name + '|' + str(self.last_name) 
-
-
 class Exercise_Category(models.Model):
     id = models.AutoField(primary_key=True)
     name_category = models.CharField('Category name', max_length=100, blank= False, null=False)

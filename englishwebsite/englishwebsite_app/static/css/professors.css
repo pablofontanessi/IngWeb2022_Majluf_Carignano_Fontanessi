@@ -127,6 +127,25 @@ body{
 .swiper-pagination-bullet-active{
   background-color: #4e5d6c;
 }
+.buttonback{
+  height:40px; 
+  width:150px; 
+  margin: 10px 10px; 
+  top:50%; 
+  left:50%;
+  border: none;
+  font-size: 16px;
+  color: #FFF;
+  padding: 8px 16px;
+  background-color: #df691a;;
+  border-radius: 6px;
+  margin: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.buttonback:hover{
+  background: #5bc0de;
+}
 
 @media screen and (max-width: 768px) {
   .slide-content{
@@ -136,3 +155,4 @@ body{
     display: none;
   }
 }
+

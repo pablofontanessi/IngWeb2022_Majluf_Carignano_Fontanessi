@@ -20,10 +20,7 @@ def base(request):
 
 @login_required
 def homelogin(request):
-    return render(
-        request,
-        'homelogin.html',
-    )
+    return render(request,'homelogin.html',)
 
 def register(request):
 	if request.method == 'POST':
@@ -55,9 +52,9 @@ def register(request):
                     [to_email],
                     fail_silently=True,
                     html_message=message,
-                )
-
-				return HttpResponse('Please confirm your email address to complete the registration')  
+                )				
+				# return HttpResponse('Please confirm your email address to complete the registration')  
+				return	redirect('/confirm-address')
 
 	else:
 		form = UserRegisterForm()        
@@ -143,3 +140,6 @@ def create_exercise(request):
 # sin login_requered, para que si alguien entra, sin loguearse al menos pueda leer sobre los profesores.
 def professors(request):
     return render(request,'professors.html',)
+
+def confirm_address(request):
+    return render(request,'confirm-address.html',)

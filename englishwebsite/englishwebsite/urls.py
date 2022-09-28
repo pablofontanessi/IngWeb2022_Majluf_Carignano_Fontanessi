@@ -28,7 +28,11 @@ urlpatterns = [
     path('activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/',  
     views.activate, name='activate'),
     #confirm address in register
-    path("confirm-address", views.confirm_address),   
+    path("confirm-address", views.confirm_address),
+    #confirmed email
+    path("confirmed-email", views.confirmed_email),   
+    #invalid link
+    path("invalid-link", views.invalid_link),  
 
     #auth login
     path("accounts/", include("django.contrib.auth.urls")),

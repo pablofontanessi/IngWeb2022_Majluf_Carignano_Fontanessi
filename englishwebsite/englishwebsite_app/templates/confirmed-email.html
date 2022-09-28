@@ -1,8 +1,10 @@
-{% comment %} {% load static %} 
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 
 <head>
+	{% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/exercises.css' %}" /> {% endcomment %}
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{% static '/css/login-register.css' %}"/>
     <!-- Bootstrap CSS -->
@@ -16,25 +18,16 @@
 	<section id="writingexercises" class="wrapper style3 special">
 		<div class="inner">
 		<div class="jumbotron">
-            {% autoescape off %}
-			<h1 class="display-3">Hi {{ user.username }}</h1>
-			<p class="lead">Please click on the link to confirm your registration!</p>
-            <p class="lead">http://{{ domain }}{% url 'activate' uidb64=uid token=token %} </p>
-            {% endautoescape %}
+			<h1 class="display-3">Registration confirmed!</h1>
+			<p class="lead">Thank you for your email confirmation. Now you can login your account.</p>
 			<hr class="my-4">
-			<p>You can go back to hompage.</p>
+			<p>You can go to login section or go back to homepage.</p>
 			<p class="lead">
-			<a class="btn btn-primary btn-lg" href="{% url 'logout' %}" role="button">HOMEPAGE</a>
+			<a class="btn btn-primary btn-lg" href="/accounts/login/" role="button">SIGN IN</a>
+            <a class="btn btn-primary btn-lg" href="{% url 'logout' %}" role="button">HOMEPAGE</a>
 			</p>
 		</div>
 	</section>
 </body>
 
 </html>
-{% endcomment %}
-
-{% autoescape off %}  
-Hi {{ user.username }},  
-Please click on the link to confirm your registration,  
-http://{{ domain }}{% url 'activate' uidb64=uid token=token %}  
-{% endautoescape %}  

@@ -21,18 +21,29 @@
 		<link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.min.css' %}"/>                           
     </head>
     <body>
+        <div class="jumbotron">
+            <h1 class="display-3">PROFESSORS!</h1>
+            <p class="lead">In this section you can view the active professors in our page...</p>
+            <hr class="my-4">
+            <p>If you dont want view this page, you can go back to homepage.</p>
+            <p class="lead">
+            {% if request.user.is_authenticated or request.user.is_superuser%}
+            <a class="btn btn-primary btn-lg" href="/homelogin" role="button">HOMEPAGE</a>
+            {% else %}
+            <a class="btn btn-primary btn-lg" href="{% url 'logout' %}" role="button">HOMEPAGE</a>
+            {% endif %}
+            </p>
+        </div>
         <div class="slide-container swiper">
             <div class="slide-content">
                 <div class="card-wrapper swiper-wrapper">
                     <div class="card swiper-slide">
                         <div class="image-content">
                             <span class="overlay"></span>
-
                             <div class="card-image">
                                 <img src="{% static '/img/delfiferrer.jpg' %}" alt="" class="card-img">
                             </div>
                         </div>
-
                         <div class="card-content">
                             <h2 class="name">Delfi Ferrer</h2>
                             <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>

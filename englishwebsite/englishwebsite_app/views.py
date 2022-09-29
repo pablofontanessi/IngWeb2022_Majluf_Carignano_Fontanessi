@@ -71,10 +71,13 @@ def activate(request, uidb64, token):
         user = None  
     if user is not None and account_activation_token.check_token(user, token):  
         user.is_active = True  
-        user.save()  
-        return HttpResponse('Thank you for your email confirmation. Now you can login your account.')  
+        user.save()
+        
+        return	redirect('/confirmed-email')  
+        #return HttpResponse('Thank you for your email confirmation. Now you can login your account.')  
     else:  
-        return HttpResponse('Activation link is invalid!') 
+        return	redirect('/invalid-link') 
+        # return HttpResponse('Activation link is invalid!') 
 
 
 @login_required
@@ -143,3 +146,9 @@ def professors(request):
 
 def confirm_address(request):
     return render(request,'confirm-address.html',)
+
+def confirmed_email(request):
+    return render(request,'confirmed-email.html',)
+
+def invalid_link (request):
+    return render(request,'invalid-link.html',)

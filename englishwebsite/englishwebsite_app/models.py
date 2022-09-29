@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Exercise_Category(models.Model):
@@ -21,7 +22,7 @@ class Post(models.Model):
     activity = models.TextField('Activity',blank=False, max_length= 500)
     correct_answer = models.TextField('Correct answer',blank=True, max_length= 500)
     file = models.FileField(upload_to='uploads')
-    #author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.ForeignKey(Exercise_Category, on_delete=models.CASCADE)
     available = models.BooleanField('Published/No Published', default= True)
     creation_date = models.DateField('Creation date', auto_now= False, auto_now_add= True)
@@ -47,3 +48,14 @@ class Professor(models.Model):
 
     def __str__(self):
         return self.name
+
+class QuesModel(models.Model):
+    question = models.CharField(max_length=200,null=True)
+    op1 = models.CharField(max_length=200,null=True)
+    op2 = models.CharField(max_length=200,null=True)
+    op3 = models.CharField(max_length=200,null=True)
+    op4 = models.CharField(max_length=200,null=True)
+    ans = models.CharField(max_length=200,null=True)
+    
+    def __str__(self):
+        return self.question

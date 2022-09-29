@@ -32,9 +32,10 @@
 			</div>
 			<ul>
 				{% for exercise in exercise_list %}
-				<li> {{exercise.title_exercise}} - {{exercise.description_exercise}} 
+				<li> {{exercise.title_exercise}} - {{exercise.author}}
 					<br/>
-					<details>
+					{{exercise.description_exercise}} 
+					<br/>
 						<summary>Details</summary>
 						<p>{{exercise.activity}}</p>
 						<audio controls>

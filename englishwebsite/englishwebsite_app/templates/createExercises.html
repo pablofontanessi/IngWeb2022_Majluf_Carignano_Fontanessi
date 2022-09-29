@@ -17,6 +17,9 @@
 
 <body>
 	<section id="writingexercises" class="wrapper style3 special">
+		<p class="lead">
+			<a class="btn btn-primary btn-lg" href="homelogin" role="button">HOMEPAGE</a>
+		</p>
 		<div class="inner">
 			{% comment %} <header class="major">
 				<h2>CREATE YOUR EXERCISES!</h2>
@@ -25,11 +28,8 @@
 			<div class="jumbotron">
 				<h1 class="display-3">CREATE YOUR EXERCISES!</h1>
 				<p class="lead">In this section you can create your excercises...</p>
+				<a class="btn btn-primary btn-lg" href="addQuestion" role="button">CREATE MULTIPLE OPTIONS EXERCISES</a>
 				<hr class="my-4">
-				<p>If you dont want to create them, you can go back to hompage.</p>
-				<p class="lead">
-				<a class="btn btn-primary btn-lg" href="homelogin" role="button">HOMEPAGE</a>
-				</p>
 			</div>
             <form method="post", action="/createExercises" enctype="multipart/form-data">
                 {% csrf_token %}  

@@ -39,6 +39,8 @@ urlpatterns = [
 
     #professors
     path("professors/", views.professors),
+    path("professors_more/", views.professors_more),
+    
 ]
 
 urlpatterns+= static(settings .MEDIA_URL,document_root = settings.MEDIA_ROOT)

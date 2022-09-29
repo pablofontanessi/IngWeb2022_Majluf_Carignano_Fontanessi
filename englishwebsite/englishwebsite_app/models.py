@@ -32,8 +32,18 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title_exercise
+        
 
+class Professor(models.Model):
+    id = models.AutoField(primary_key = True)
+    name = models.CharField('Name', max_length= 250, blank=False, null=False)
+    short_description = models.CharField('Short description', max_length= 100, blank= False, null=False)
+    full_description = models.CharField('Full description', max_length= 500, blank= False, null=False)
+    avatar = models.ImageField()
 
+    class Meta:
+        verbose_name = 'Professor'
+        verbose_name_plural = 'Professors'
 
-
-
+    def __str__(self):
+        return self.name

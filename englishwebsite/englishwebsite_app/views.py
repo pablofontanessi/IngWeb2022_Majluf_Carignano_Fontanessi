@@ -85,7 +85,6 @@ def writing(request):
 	WrittingExercises = Post.objects.filter(category =1)
 	return render(request,'writing.html',{'exercise_list': WrittingExercises})
 
-
 @login_required
 def reading(request):
 	ReadingExercises = Post.objects.filter(category = 3)
@@ -95,6 +94,7 @@ def reading(request):
 def listening(request):
 	ListeningExercises = Post.objects.filter(category = 2)
 	return render(request,'listening.html',{'exercise_list': ListeningExercises})
+
 @login_required
 def speaking(request):
 	SpeakingExercises = Post.objects.filter(category = 4)
@@ -140,9 +140,16 @@ def create_exercise(request):
 	
 	return render(request,'createExercises.html', {'form':form})
 
-# sin login_requered, para que si alguien entra, sin loguearse al menos pueda leer sobre los profesores.
+
 def professors(request):
-    return render(request,'professors.html',)
+	professors = Professor.objects.all()
+    
+	return render(request,'professors.html', {'professors':professors})
+
+@login_required
+def professors_more(request):
+	#professor = Professor.objects.filter(request = 1)
+    return render(request,'professors_more.html', )#{'professor':professor})
 
 def confirm_address(request):
     return render(request,'confirm-address.html',)

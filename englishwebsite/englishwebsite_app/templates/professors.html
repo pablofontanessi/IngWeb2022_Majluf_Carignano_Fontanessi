@@ -38,84 +38,24 @@
             <div class="slide-content">
                 <button class="buttonback" onclick="history.back()" name="back">BACK TO MAIN</button>
                 <div class="card-wrapper swiper-wrapper">
+
+                    {% for proffesor in professors %}
                     <div class="card swiper-slide">
                         <div class="image-content">
                             <span class="overlay"></span>
                             <div class="card-image">
-                                <img src="{% static '/img/delfiferrer.jpg' %}" alt="" class="card-img">
+                                <img src="{{MEDIA_URL}}{{proffesor.avatar}}" alt="" class="card-img">
                             </div>
                         </div>
                         <div class="card-content">
-                            <h2 class="name">Delfi Ferrer</h2>
-                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+                            <h2 class="name">{{proffesor.name}}</h2>
+                            <p class="description">{{proffesor.short_description}}</p>
 
                             <button class="button">View More</button>
                         </div>
                     </div>
-                    <div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-
-                            <div class="card-image">
-                                <img src="{% static '/img/mike.jpg' %}" alt="" class="card-img">
-                            </div>
-                        </div>
-
-                        <div class="card-content">
-                            <h2 class="name">Mike Sissons</h2>
-                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                            <button class="button">View More</button>
-                        </div>
-                    </div>
-                    <div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-
-                            <div class="card-image">
-                                <img src="{% static '/img/brenda.jpg' %}" alt="" class="card-img">
-                            </div>
-                        </div>
-
-                        <div class="card-content">
-                            <h2 class="name">Brenda Sprenkle</h2>
-                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                            <button class="button">View More</button>
-                        </div>
-                    </div>
-                    <div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-
-                            <div class="card-image">
-                                <img src="{% static '/img/alexander.jpg' %}" alt="" class="card-img">
-                            </div>
-                        </div>
-
-                        <div class="card-content">
-                            <h2 class="name">Alexander Perez</h2>
-                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                            <button class="button">View More</button>
-                        </div>
-                    </div>
-                    <div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-
-                            <div class="card-image">
-                                <img src="{% static '/img/flor.jpg' %}" alt="" class="card-img">
-                            </div>
-                        </div>
-
-                        <div class="card-content">
-                            <h2 class="name">Flor Dell</h2>
-                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
-
-                            <button class="button">View More</button>
-                        </div>
-                    </div>
+                    {% endfor%}
+                    
                 </div>
             </div>
 

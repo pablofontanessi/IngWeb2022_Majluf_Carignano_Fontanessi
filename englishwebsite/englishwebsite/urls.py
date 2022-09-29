@@ -22,8 +22,6 @@ urlpatterns = [
     path('countries-nationalitiesC-H',views.nacionalitiesExercisesCtoH),
     path('createExercises',views.create_exercise),
     #path('writing/exercises/<int:pk>',WrittingExercise_detail.as_view(), name= 'exercise-detail' ),
-    path('addQuestion/', views.addQuestion,name='addQuestion'),
-    path('MultipleOption/', views.MultipleQuestionsExercises,name='MultipleOption'),
 
     #user register
     path('register/', views.register),

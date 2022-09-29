@@ -1,6 +1,7 @@
 from django.shortcuts import  render, redirect
 from .models import *
 from .forms import *
+from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
 from django.http import HttpResponse  
@@ -12,6 +13,7 @@ from englishwebsite_app.tokens import account_activation_token
 from django.core.mail import send_mail
 from django.template.loader import render_to_string  
 from django.conf import settings
+from django.contrib import messages
 
 # Create your views here.
 
@@ -159,3 +161,54 @@ def confirmed_email(request):
 
 def invalid_link (request):
     return render(request,'invalid-link.html',)
+
+@login_required
+def addQuestion(request):    
+    if request.user.is_staff:
+        form=addQuestionform()
+        if(request.method=='POST'):
+            form=addQuestionform(request.POST)
+            if(form.is_valid()):
+                messages.success(request, 'Quiz created successfully.')
+                form.save()
+                return redirect('MultipleOption')
+        context={'form':form}
+        return render(request,'addMultipleOption.html',context)
+    else: 
+        return redirect('homelogin') 
+
+@login_required
+def MultipleQuestionsExercises(request):
+    if request.method == 'POST':
+        print(request.POST)
+        questions=QuesModel.objects.all()
+        score=0
+        wrong=0
+        correct=0
+        total=0
+        for q in questions:
+            total+=1
+            print(request.POST.get(q.question))
+            print(q.ans)
+            print()
+            if q.ans ==  request.POST.get(q.question):
+                score+=10
+                correct+=1
+            else:
+                wrong+=1
+        percent = score/(total*10) *100
+        context = {
+            'score':score,
+            'time': request.POST.get('timer'),
+            'correct':correct,
+            'wrong':wrong,
+            'percent':percent,
+            'total':total
+        }
+        return render(request,'result.html',context)
+    else:
+        questions=QuesModel.objects.all()
+        context = {
+            'questions':questions
+        }
+        return render(request,'multipleoptionExercise.html',context)

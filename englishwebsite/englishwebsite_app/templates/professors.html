@@ -25,18 +25,20 @@
             <h1 class="display-3">PROFESSORS!</h1>
             <p class="lead">In this section you can view the active professors in our page...</p>
             <hr class="my-4">
-            <p>If you dont want view this page, you can go back to homepage.</p>
+            
             <p class="lead">
             {% if request.user.is_authenticated or request.user.is_superuser%}
-            <a class="btn btn-primary btn-lg" href="/homelogin" role="button">HOMEPAGE</a>
+            <p>If you dont want view this page, you can go back to homepage.</p>
+            <a class="button" href="/homelogin" role="button">Homepage</a>
             {% else %}
-            <a class="btn btn-primary btn-lg" href="{% url 'logout' %}" role="button">HOMEPAGE</a>
+            <p>If you dont want view this page, you can go back to homepage, or create an account.</p>
+            <a class="button" onclick="history.back()" role="button">Homepage</a> 
+            <a class="button" href="/register/ role="button">Register now</a>
             {% endif %}
             </p>
         </div>
         <div class="slide-container swiper">
             <div class="slide-content">
-                <button class="buttonback" onclick="history.back()" name="back">BACK TO MAIN</button>
                 <div class="card-wrapper swiper-wrapper">
 
                     {% for proffesor in professors %}
@@ -51,7 +53,7 @@
                             <h2 class="name">{{proffesor.name}}</h2>
                             <p class="description">{{proffesor.short_description}}</p>
 
-                            <button class="button">View More</button>
+                            <button class="button" href="/proffesors_more"">View More</button>
                         </div>
                     </div>
                     {% endfor%}

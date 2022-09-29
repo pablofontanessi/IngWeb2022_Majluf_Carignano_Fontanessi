@@ -1,4 +1,4 @@
-from django.shortcuts import  render, redirect
+from django.shortcuts import  get_object_or_404, render, redirect
 from .models import *
 from .forms import *
 from django.contrib.auth.decorators import login_required
@@ -147,9 +147,10 @@ def professors(request):
 	return render(request,'professors.html', {'professors':professors})
 
 @login_required
-def professors_more(request):
-	#professor = Professor.objects.filter(request = 1)
-    return render(request,'professors_more.html', )#{'professor':professor})
+def professors_more(request, pk):
+	professor = get_object_or_404(Professor, pk = pk)
+    
+	return render(request,'professprofessors_moreors.html', {'professor':professor})
 
 def confirm_address(request):
     return render(request,'confirm-address.html',)

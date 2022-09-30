@@ -3,7 +3,9 @@ from django.urls import path, include
 from englishwebsite_app import views
 from django.views.generic.base import TemplateView
 from django.conf.urls.static import static
-from django.conf import settings 
+from django.conf import settings
+
+from englishwebsite_app.models import Professor 
 #from englishwebsite_app.views import WrittingExercise_detail
 
 urlpatterns = [
@@ -40,6 +42,7 @@ urlpatterns = [
     #professors
     path("professors/", views.professors),
     path("professors_more/", views.professors_more),
+    path("professors_more/<int:id>", views.professors_more, name="professors_more")
     
 ]
 

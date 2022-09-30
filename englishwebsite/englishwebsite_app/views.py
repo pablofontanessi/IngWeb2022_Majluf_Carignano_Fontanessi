@@ -144,13 +144,13 @@ def create_exercise(request):
 def professors(request):
 	professors = Professor.objects.all()
     
-	return render(request,'professors.html', {'professors':professors})
+	return render(request,'professors.html', {'professors': professors})
 
 @login_required
-def professors_more(request, pk):
-	professor = get_object_or_404(Professor, pk = pk)
-    
-	return render(request,'professprofessors_moreors.html', {'professor':professor})
+def professors_more(request, id):
+	professor = Professor.objects.get(id = id)
+
+	return render(request, "professors_more.html", {'professor': professor})
 
 def confirm_address(request):
     return render(request,'confirm-address.html',)

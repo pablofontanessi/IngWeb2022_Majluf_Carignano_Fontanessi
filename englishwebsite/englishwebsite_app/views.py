@@ -14,6 +14,7 @@ from django.core.mail import send_mail
 from django.template.loader import render_to_string  
 from django.conf import settings
 from django.contrib import messages
+from django.db import connection
 
 # Create your views here.
 
@@ -81,26 +82,25 @@ def activate(request, uidb64, token):
         return	redirect('/invalid-link') 
         # return HttpResponse('Activation link is invalid!') 
 
-
-
 @login_required
 def writing(request):
-	WrittingExercises = Post.objects.filter(category =1)
+    
+	WrittingExercises =  Post.objects.filter(category = Exercise_Category.objects.get(name_category = 'Writing').pk)
 	return render(request,'writing.html',{'exercise_list': WrittingExercises})
 
 @login_required
 def reading(request):
-	ReadingExercises = Post.objects.filter(category = 3)
+	ReadingExercises = Post.objects.filter(category = Exercise_Category.objects.get(name_category = 'Reading').pk)
 	return render(request,'reading.html',{'exercise_list': ReadingExercises})
 
 @login_required
 def listening(request):
-	ListeningExercises = Post.objects.filter(category = 2)
+	ListeningExercises = Post.objects.filter(category = Exercise_Category.objects.get(name_category = 'Listening').pk)
 	return render(request,'listening.html',{'exercise_list': ListeningExercises})
 
 @login_required
 def speaking(request):
-	SpeakingExercises = Post.objects.filter(category = 4)
+	SpeakingExercises = Post.objects.filter(category = Exercise_Category.objects.get(name_category = 'Speaking').pk)
 	return render(request,'speaking.html',{'exercise_list': SpeakingExercises})
 
 @login_required

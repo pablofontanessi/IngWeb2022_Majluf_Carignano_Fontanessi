@@ -4,7 +4,7 @@ from englishwebsite_app import views
 from django.views.generic.base import TemplateView
 from django.conf.urls.static import static
 from django.conf import settings 
-#from englishwebsite_app.views import WrittingExercise_detail
+from englishwebsite_app.views import *
 
 urlpatterns = [
     path('', views.base),
@@ -21,7 +21,8 @@ urlpatterns = [
     path('countries-nationalitiesAtoC',views.nacionalitiesExercisesAtoC),
     path('countries-nationalitiesC-H',views.nacionalitiesExercisesCtoH),
     path('createExercises',views.create_exercise),
-    #path('writing/exercises/<int:pk>',WrittingExercise_detail.as_view(), name= 'exercise-detail' ),
+   #path('writting',writingView.as_view(), name= 'writting' ),
+    #path('writing/exercises/<int:pk>',writingViewDetail.as_view(), name= 'exercise-detail' ),
     path('addQuestion/', views.addQuestion,name='addQuestion'),
     path('MultipleOption/', views.MultipleQuestionsExercises,name='MultipleOption'),
 

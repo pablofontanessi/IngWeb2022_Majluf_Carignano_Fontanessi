@@ -38,18 +38,9 @@
 			</div>
 			<ul>
 				{% for exercise in exercise_list %}
-				<li> {{exercise.title_exercise}} - {{exercise.author}}
+				<li> <a class="button" href="{%url 'exercise-detail' exercise.id %}">{{exercise.title_exercise}}</a> - {{exercise.author}}
 					<br/>
 					{{exercise.description_exercise}}
-					<details>
-						<summary>Details</summary>
-						<p>{{exercise.activity}}</p>
-						<img src= '{{MEDIA_URL}}{{exercise.file}}' alt="Image for the activiy. If it doesn't exist, you will see this message">
-						<details>
-							<summary>Correct answer</summary>
-							<p>{{exercise.correct_answer}}</p>
-						</details>
-					</details>
 				</li>
 				{% endfor%}
 			</ul>

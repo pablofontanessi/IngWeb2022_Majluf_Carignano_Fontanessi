@@ -127,6 +127,11 @@ def nacionalitiesExercisesAtoC(request):
 def nacionalitiesExercisesCtoH(request):
 	return render(request,'countries-nationalitiesC-H.html')
 
+@login_required
+def exerciseDetail(request,id):
+    Exercise = Post.objects.get(id = id)
+
+    return render(request,"exersiceDetails.html",{'exercise':Exercise})
 
 @login_required
 def create_exercise(request):

@@ -22,7 +22,7 @@ urlpatterns = [
     path('countries-nationalitiesC-H',views.nacionalitiesExercisesCtoH),
     path('createExercises',views.create_exercise),
    #path('writting',writingView.as_view(), name= 'writting' ),
-    #path('writing/exercises/<int:pk>',writingViewDetail.as_view(), name= 'exercise-detail' ),
+    path('exerciseDetail/<int:id>',views.exerciseDetail, name= 'exercise-detail' ),
     path('addQuestion/', views.addQuestion,name='addQuestion'),
     path('MultipleOption/', views.MultipleQuestionsExercises,name='MultipleOption'),
 

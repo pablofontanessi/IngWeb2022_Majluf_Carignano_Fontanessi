@@ -1,0 +1,27 @@
+{% load static %}
+<head>
+	{% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/exercises.css' %}" /> {% endcomment %}
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/login-register.css' %}"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" 
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <!-- Bootswatch-->
+    <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.min.css' %}"/>
+</head>
+<div id="principal">
+    <ul>
+            <h2>{{exercise.title_exercise}} - Author: {{exercise.author}} </h2>
+            <br/>
+            <h3>{{exercise.description_exercise}}</h3>
+            <br/>
+            <p>{{exercise.activity}}</p>
+            <img src= '{{MEDIA_URL}}{{exercise.file}}' alt="Image for the activiy. If it doesn't exist, you will see this message">
+            <details>
+                <summary>Correct answer</summary>
+                <p>{{exercise.correct_answer}}</p>
+            </details>
+</div>
+<p class="lead">
+    <a class="btn btn-primary btn-lg" href="/homelogin" role="button">HOMEPAGE</a>
+</p> 

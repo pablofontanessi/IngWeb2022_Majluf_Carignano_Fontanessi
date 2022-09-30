@@ -19,7 +19,7 @@
            <p>Remember, in the "ans" box, you have to write the correct option.</p>
            <p>For example:</p> 
            <img src="{% static '/img/exampleAns.png' %}" width="300" height="35">
-
+            <br/>
            <form action="" method="POST">
               {% csrf_token %}
                 {{form.as_p}}

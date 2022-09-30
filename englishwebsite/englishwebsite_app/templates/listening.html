@@ -32,20 +32,9 @@
 			</div>
 			<ul>
 				{% for exercise in exercise_list %}
-				<li> {{exercise.title_exercise}} - {{exercise.author}}
+				<li> <a class="button" href="{%url 'exercise-detail' exercise.id %}">{{exercise.title_exercise}}</a> - {{exercise.author}}
 					<br/>
-					{{exercise.description_exercise}} 
-					<br/>
-						<summary>Details</summary>
-						<p>{{exercise.activity}}</p>
-						<audio controls>
-							<source src='{{MEDIA_URL}}{{exercise.file}}' type="audio/mp3" >
-						</audio>
-						<details>
-							<summary>Correct answer</summary>
-							<p>{{exercise.correct_answer}}</p>
-						</details>
-					</details>
+					{{exercise.description_exercise}}
 				</li>
 				{% endfor%}
 			</ul>

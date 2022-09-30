@@ -5,6 +5,10 @@ from django.views.generic.base import TemplateView
 from django.conf.urls.static import static
 from django.conf import settings 
 from englishwebsite_app.views import *
+from django.conf import settings
+
+from englishwebsite_app.models import Professor 
+#from englishwebsite_app.views import WrittingExercise_detail
 
 urlpatterns = [
     path('', views.base),
@@ -21,7 +25,7 @@ urlpatterns = [
     path('countries-nationalitiesAtoC',views.nacionalitiesExercisesAtoC),
     path('countries-nationalitiesC-H',views.nacionalitiesExercisesCtoH),
     path('createExercises',views.create_exercise),
-   #path('writting',writingView.as_view(), name= 'writting' ),
+    #path('writting',writingView.as_view(), name= 'writting' ),
     path('exerciseDetail/<int:id>',views.exerciseDetail, name= 'exercise-detail' ),
     path('addQuestion/', views.addQuestion,name='addQuestion'),
     path('MultipleOption/', views.MultipleQuestionsExercises,name='MultipleOption'),
@@ -43,6 +47,7 @@ urlpatterns = [
     #professors
     path("professors/", views.professors),
     path("professors_more/", views.professors_more),
+    path("professors_more/<int:id>", views.professors_more, name="professors_more")
     
 ]
 

@@ -11,3 +11,4 @@ sqlparse==0.4.2
 whitenoise==6.2.0
 django-ckeditor==6.5.0
 six==1.14.0
+Pillow==7.0.0

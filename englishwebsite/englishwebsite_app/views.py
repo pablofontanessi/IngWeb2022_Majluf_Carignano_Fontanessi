@@ -182,7 +182,7 @@ def addQuestion(request):
         context={'form':form}
         return render(request,'addMultipleOption.html',context)
     else: 
-        return redirect('homelogin') 
+        return redirect('/homelogin') 
 
 @login_required
 def MultipleQuestionsExercises(request):

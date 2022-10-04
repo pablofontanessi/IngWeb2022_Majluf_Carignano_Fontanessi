@@ -137,15 +137,13 @@ def exerciseDetail(request,id):
 def create_exercise(request):
 	if request.method == 'POST':
 		form = CreateNewExercise(request.POST,request.FILES)
-		
 		if form.is_valid():
-			
-			form.save()
+			aux = form.save(commit=False)
+			aux.author = request.user
+			aux.save()
 			return redirect('/homelogin')
 	else:
 		form = CreateNewExercise()
-	
-	
 	return render(request,'createExercises.html', {'form':form})
 
 

@@ -24,14 +24,14 @@ class CreateNewExercise(ModelForm):
 	description_exercise = forms.CharField(max_length= 500)
 	activity = forms.CharField(max_length= 500,widget=forms.Textarea)
 	correct_answer = forms.CharField(max_length= 500,widget=forms.Textarea)
-	author = forms.ModelChoiceField(queryset=User.objects.all(), empty_label=None)
+	#author = forms.TypedChoiceField(queryset=User.objects.filter(username =User.username), empty_label=None)
 	category = forms.ModelChoiceField(queryset=Exercise_Category.objects.all(), empty_label=None)
 	file = forms.FileField(required=False)
 
 
 	class Meta:
 		model= Post
-		fields=['title_exercise','description_exercise','activity','correct_answer','author','category','file' ]
+		fields=['title_exercise','description_exercise','activity','correct_answer','category','file' ]
 
 class addQuestionform(ModelForm):
     class Meta:

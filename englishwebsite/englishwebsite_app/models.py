@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Exercise_Category(models.Model):
@@ -50,6 +51,7 @@ class Professor(models.Model):
 
 class Comment(models.Model):
     professor = models.ForeignKey(Professor, on_delete=models.CASCADE, default=1)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     name = models.CharField(max_length=50)
     body = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)

@@ -136,5 +136,5 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'englishwebsite_django@hotmail.com'
 EMAIL_HOST_PASSWORD = os.environ.get('DJANGO_EMAIL_PASSWORD', '')
 
-if not os.environ.get('RUNNING_INSIDE_HEROKU', False):
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#if not os.environ.get('RUNNING_INSIDE_HEROKU', False):
+#    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

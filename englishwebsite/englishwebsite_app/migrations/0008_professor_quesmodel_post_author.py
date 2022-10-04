@@ -14,20 +14,6 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Professor',
-            fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('name', models.CharField(max_length=250, verbose_name='Name')),
-                ('short_description', models.CharField(max_length=100, verbose_name='Short description')),
-                ('full_description', models.CharField(max_length=500, verbose_name='Full description')),
-                ('avatar', models.ImageField(upload_to='')),
-            ],
-            options={
-                'verbose_name': 'Professor',
-                'verbose_name_plural': 'Professors',
-            },
-        ),
-        migrations.CreateModel(
             name='QuesModel',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),

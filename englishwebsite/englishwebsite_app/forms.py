@@ -32,11 +32,3 @@ class CreateNewExercise(ModelForm):
 	class Meta:
 		model= Post
 		fields=['title_exercise','description_exercise','activity','correct_answer','category','file' ]
-
-class CreateNewComment(ModelForm):
-	title = forms.CharField(max_length = 50)
-	body = forms.CharField(max_length = 300)
-
-	class Meta:
-		model = Comment
-		fields=['title','body']

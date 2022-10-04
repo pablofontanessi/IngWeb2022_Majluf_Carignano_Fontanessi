@@ -161,16 +161,3 @@ def confirmed_email(request):
 
 def invalid_link (request):
     return render(request,'invalid-link.html',)
-
-def create_comment(request, id):
-	if request.method == 'POST':
-		form = CreateNewComment(request.POST,request.FILES)
-		if form.is_valid():
-			aux = form.save(commit = False)
-			aux.user = request.user
-			aux.professor = request.id
-			aux.save()
-			return render(request, 'professors_more/{id}',)
-	else:
-		form = CreateNewComment()
-		return render(request, 'professors_more/{id}',)

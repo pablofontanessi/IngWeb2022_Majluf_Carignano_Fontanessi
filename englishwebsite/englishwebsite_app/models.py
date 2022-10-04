@@ -48,19 +48,4 @@ class Professor(models.Model):
         verbose_name_plural = 'Professors'
 
     def __str__(self):
-        return self.user.username 
-
-class Comment(models.Model):
-    id = models.AutoField(primary_key = True)
-    professor = models.ForeignKey(Professor, on_delete=models.CASCADE, default=1)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
-    title = models.CharField(max_length=50)
-    body = models.TextField()
-    date_added = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        verbose_name = 'Comment'
-        verbose_name_plural = 'Comments'
-
-    def __str__(self):
-        return self.title
+        return self.user.username

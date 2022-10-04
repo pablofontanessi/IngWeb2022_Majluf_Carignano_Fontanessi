@@ -36,6 +36,7 @@ class Post(models.Model):
         
 
 class Professor(models.Model):
+    user = models.OneToOneField(User, on_delete= models.CASCADE)
     id = models.AutoField(primary_key = True)
     name = models.CharField('Name', max_length= 250, blank=False, null=False)
     short_description = models.CharField('Short description', max_length= 100, blank= False, null=False)
@@ -47,12 +48,13 @@ class Professor(models.Model):
         verbose_name_plural = 'Professors'
 
     def __str__(self):
-        return self.name
+        return self.user.username 
 
 class Comment(models.Model):
+    id = models.AutoField(primary_key = True)
     professor = models.ForeignKey(Professor, on_delete=models.CASCADE, default=1)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
-    name = models.CharField(max_length=50)
+    title = models.CharField(max_length=50)
     body = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
 
@@ -61,7 +63,7 @@ class Comment(models.Model):
         verbose_name_plural = 'Comments'
 
     def __str__(self):
-        return self.name
+        return self.title
 
     def get_cname(self):
         class_name = 'Comment'

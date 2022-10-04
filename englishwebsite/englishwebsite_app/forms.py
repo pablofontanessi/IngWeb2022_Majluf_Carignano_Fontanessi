@@ -4,7 +4,7 @@ from django import forms
 from django.forms import ModelForm, ModelChoiceField
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Post, Exercise_Category
+from .models import *
 
 
 
@@ -32,3 +32,11 @@ class CreateNewExercise(ModelForm):
 	class Meta:
 		model= Post
 		fields=['title_exercise','description_exercise','activity','correct_answer','category','file' ]
+
+class CreateNewComment(ModelForm):
+	title = forms.CharField(max_length = 50)
+	body = forms.CharField(max_length = 300)
+
+	class Meta:
+		model = Comment
+		fields=['title','body']

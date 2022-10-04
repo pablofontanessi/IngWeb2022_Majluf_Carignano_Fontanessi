@@ -64,7 +64,3 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.title
-
-    def get_cname(self):
-        class_name = 'Comment'
-        return class_name 

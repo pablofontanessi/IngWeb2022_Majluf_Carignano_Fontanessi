@@ -19,13 +19,39 @@
 		<link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.min.css' %}"/>                           
     </head>
     <body>
-        <div class="jumbotron">
-            <h1 class="display-3">{{professor.name}}</h1>
-            <p class="lead">{{professor.short_description}}</p>
-            <hr class="my-4">
-            
-            <p class="lead">
-            <p>{{professor.full_description}}</p>
-            <a class="button" onclick="history.back()" role="button">Go back</a>        
+        <div>
+            <a class="button" onclick="history.back()" role="button">Back</a> 
+            <div class="jumbotron">
+                <h1 class="display-3">{{professor.name}}</h1>
+                <p class="lead">{{professor.short_description}}</p>
+                <hr class="my-4">
+                
+                <p class="lead">
+                <p>{{professor.full_description}}</p>
+                </p>
+            </div>
+
+            <div id="disqus_thread"></div>
+                <script>
+                    /**
+                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                    /*
+                    var disqus_config = function () {
+                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    };
+                    */
+                    (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = 'https://127-0-0-1-8000-professors-more-1.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+
     </body>
+
 </html>

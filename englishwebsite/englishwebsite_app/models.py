@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Exercise_Category(models.Model):
@@ -36,6 +37,7 @@ class Post(models.Model):
         
 
 class Professor(models.Model):
+    user = models.OneToOneField(User, on_delete= models.CASCADE)
     id = models.AutoField(primary_key = True)
     name = models.CharField('Name', max_length= 250, blank=False, null=False)
     short_description = models.CharField('Short description', max_length= 100, blank= False, null=False)

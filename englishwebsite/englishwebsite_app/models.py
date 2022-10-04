@@ -47,3 +47,20 @@ class Professor(models.Model):
 
     def __str__(self):
         return self.name
+
+class Comment(models.Model):
+    professor = models.ForeignKey(Professor, on_delete=models.CASCADE, default=1)
+    name = models.CharField(max_length=50)
+    body = models.TextField()
+    date_added = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Comment'
+        verbose_name_plural = 'Comments'
+
+    def __str__(self):
+        return self.name
+
+    def get_cname(self):
+        class_name = 'Comment'
+        return class_name 

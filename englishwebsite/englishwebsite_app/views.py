@@ -155,9 +155,8 @@ def professors(request):
 @login_required
 def professors_more(request, id):
 	professor = Professor.objects.get(id = id)
-	comments = Comment.objects.filter(professor = id)
 
-	return render(request, "professors_more.html", {'professor': professor, 'comments': comments})
+	return render(request, "professors_more.html", {'professor': professor})
 
 def confirm_address(request):
     return render(request,'confirm-address.html',)

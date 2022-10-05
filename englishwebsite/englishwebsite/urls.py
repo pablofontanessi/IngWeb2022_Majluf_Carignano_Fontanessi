@@ -29,6 +29,9 @@ urlpatterns = [
     path('exerciseDetail/<int:id>',views.exerciseDetail, name= 'exercise-detail' ),
     path('addQuestion/', views.addQuestion,name='addQuestion'),
     path('MultipleOption/', views.MultipleQuestionsExercises,name='MultipleOption'),
+    
+    #search
+    path('search/', include('haystack.urls')),
 
     #user register
     path('register/', views.register),

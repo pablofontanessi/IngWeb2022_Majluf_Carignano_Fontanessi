@@ -1,0 +1,6 @@
+{{ object.title_exercise }}
+{{ object.category.name_category }}
+{{ object.author.username }}
+{{ object.description_exercise}}
+{{ object.activity }}
+{{ object.id }}

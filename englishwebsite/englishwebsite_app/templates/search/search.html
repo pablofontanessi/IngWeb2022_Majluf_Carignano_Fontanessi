@@ -1,0 +1,46 @@
+{%load static%}
+<head>
+    {% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/exercises.css' %}" /> {% endcomment %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% comment %} <link rel="stylesheet" type="text/css" href="{% static '/css/login-register.css' %}"/> {% endcomment %}
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" 
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <!-- Bootswatch-->
+    <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.min.css' %}"/>
+</head>
+
+
+<h2>Buscar:</h2>
+
+    <form method="get" action=".">
+        <table>
+            {{ form.as_table }}
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <input type="submit" value="Buscar">
+                </td>
+            </tr>
+        </table>
+
+        {% if query %}
+            <h3>Resultados:</h3>
+
+            {% for result in page.object_list %}
+                <h3><a class="button" href="{%url 'exercise-detail' result.idPost %}">{{result.title}}</a>, Author: {{ result.author }}</h3>
+                <p>Description of excersice: {{ result.description }}</p>
+                <p>Creation date: {{ result.creation_date }}</p>
+            {% empty %}
+                <p>No exercises found.</p>
+            {% endfor %}
+
+            {% if page.has_previous or page.has_next %}
+                <div>
+                    {% if page.has_previous %}<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous{% if page.has_previous %}</a>{% endif %}
+                    |
+                    {% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}Next &raquo;{% if page.has_next %}</a>{% endif %}
+                </div>
+            {% endif %}
+        {% endif %}
+    </form>

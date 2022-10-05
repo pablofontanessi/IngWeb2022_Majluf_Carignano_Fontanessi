@@ -22,7 +22,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'englishwebsite_app.apps.EnglishwebsiteAppConfig',
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -31,7 +31,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'ckeditor',
+    'haystack',
+    'englishwebsite_app.apps.EnglishwebsiteAppConfig',
 ]
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        'PATH': BASE_DIR / 'whoosh_index',
+    },
+}
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 

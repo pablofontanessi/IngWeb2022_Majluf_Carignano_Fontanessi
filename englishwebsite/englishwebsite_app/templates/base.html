@@ -52,6 +52,11 @@
                     <p class="text-white-150 font-weight-light mb-5" style="color: white;">
                         Welcome to English web site!
                     </p>
+                    {% if request.user.is_authenticated %}
+                    <p class="lead">
+                        <a class="btn btn-primary btn-lg" href="/search" role="button">SEARCH FOR EXERSICES HERE!</a>
+                    </p>
+                    {% endif %}   
                 </div>
             </div>
         </div>

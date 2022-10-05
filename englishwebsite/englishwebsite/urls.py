@@ -7,9 +7,6 @@ from django.conf import settings
 from englishwebsite_app.views import *
 from django.conf import settings
 
-from englishwebsite_app.models import Professor 
-#from englishwebsite_app.views import WrittingExercise_detail
-
 urlpatterns = [
     path('', views.base),
     path('homelogin', views.homelogin),
@@ -50,8 +47,13 @@ urlpatterns = [
     #professors
     path("professors/", views.professors),
     path("professors_more/", views.professors_more),
-    path("professors_more/<int:id>", views.professors_more, name="professors_more")
+    path("professors_more/<int:id>", views.professors_more, name="professors_more"),
     
+    #robots
+    path(
+        "robots.txt",
+        TemplateView.as_view(template_name="robots.txt", content_type="text/plain"),
+    ),
 ]
 
 urlpatterns+= static(settings .MEDIA_URL,document_root = settings.MEDIA_ROOT)

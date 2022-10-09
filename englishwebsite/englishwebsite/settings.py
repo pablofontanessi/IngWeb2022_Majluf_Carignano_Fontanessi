@@ -147,3 +147,11 @@ EMAIL_HOST_PASSWORD = os.environ.get('DJANGO_EMAIL_PASSWORD', '')
 
 #if not os.environ.get('RUNNING_INSIDE_HEROKU', False):
 #    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+if os.environ.get('SEARCHBOX_URL'):
+    HAYSTACK_CONNECTIONS = {
+        'default': {
+            'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
+            'URL': os.environ.get('SEARCHBOX_URL'),
+            'INDEX_NAME': 'documents',
+        },
+    }

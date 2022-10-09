@@ -16,7 +16,15 @@
             <h3>{{exercise.description_exercise}}</h3>
             <br/>
             <p>{{exercise.activity}}</p>
+            
             <img src= '{{MEDIA_URL}}{{exercise.file}}' alt="Image for the activiy. If it doesn't exist, you will see this message">
+            
+            <br/>
+            <audio controls autoplay>
+                <source src="{{MEDIA_URL}}{{exercise.file}}" type="audio/mpeg">
+              there is no audio here.
+            </audio> 
+            
             <details>
                 <summary>Correct answer</summary>
                 <p>{{exercise.correct_answer}}</p>

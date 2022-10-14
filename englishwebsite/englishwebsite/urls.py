@@ -48,7 +48,8 @@ urlpatterns = [
     path("professors/", views.professors),
     path("professors_more/", views.professors_more),
     path("professors_more/<int:id>", views.professors_more, name="professors_more"),
-    
+    path("professors/professors_apply", views.professors_apply),
+
     #robots
     path(
         "robots.txt",

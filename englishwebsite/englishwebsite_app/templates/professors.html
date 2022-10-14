@@ -30,6 +30,9 @@
             {% if request.user.is_authenticated or request.user.is_superuser%}
             <p>If you dont want view this page, you can go back to homepage.</p>
             <a class="button" href="/homelogin" role="button">Homepage</a>
+            <br>
+            <p><br><b>Do you want to be a teacher?</b></p>
+            <a class="button" href="professors_apply" role="button">Apply here</a>
             {% else %}
             <p>If you dont want view this page, you can go back to homepage, or create an account.</p>
             <a class="button" onclick="history.back()" role="button">Homepage</a> 
@@ -60,6 +63,7 @@
                     
                 </div>
             </div>
+            
 
             <div class="swiper-button-next swiper-navBtn"></div>
             <div class="swiper-button-prev swiper-navBtn"></div>

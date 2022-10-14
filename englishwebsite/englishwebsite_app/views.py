@@ -217,3 +217,20 @@ def MultipleQuestionsExercises(request):
             'questions':questions
         }
         return render(request,'multipleoptionExercise.html',context)
+
+@login_required
+def professors_apply(request):
+    already_have_apply = ProfessorApply.objects.filter(professor_name = request.user)
+    if len(already_have_apply) > 0:
+        return redirect('/homelogin')
+
+    if request.method == 'POST':
+        form = CreateNewProfessorApply(request.POST,request.FILES)
+        if form.is_valid():
+            aux = form.save(commit=False)
+            aux.professor_name = request.user
+            aux.save()
+            return redirect('/homelogin')
+    else:
+        form = CreateNewProfessorApply()
+    return render(request,'professors_apply.html', {'form':form})

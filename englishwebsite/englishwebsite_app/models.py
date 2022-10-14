@@ -60,3 +60,16 @@ class QuesModel(models.Model):
     
     def __str__(self):
         return self.question
+
+class ProfessorApply(models.Model):
+    id = models.AutoField(primary_key=True)
+    professor_name = models.OneToOneField(User, on_delete = models.CASCADE)
+    explanation_for_apply = models.CharField('Explanation', max_length= 255, blank=False, null=False)
+    university_title = models.ImageField()
+
+    class Meta:
+        verbose_name = 'ProfessorApply'
+        verbose_name_plural = 'ProfessorsApply'
+
+    def __str__(self):
+        return self.professor_name.username

@@ -24,7 +24,6 @@ class CreateNewExercise(ModelForm):
 	description_exercise = forms.CharField(max_length= 500)
 	activity = forms.CharField(max_length= 500,widget=forms.Textarea)
 	correct_answer = forms.CharField(max_length= 500,widget=forms.Textarea)
-	#author = forms.TypedChoiceField(queryset=User.objects.filter(username =User.username), empty_label=None)
 	category = forms.ModelChoiceField(queryset=Exercise_Category.objects.all(), empty_label=None)
 	file = forms.FileField(required=False)
 
@@ -37,3 +36,11 @@ class addQuestionform(ModelForm):
     class Meta:
         model=QuesModel
         fields="__all__"
+
+class CreateNewProfessorApply(ModelForm):
+	explanation_for_apply = forms.CharField(max_length = 255)
+	university_title = forms.ImageField()
+
+	class Meta:
+		model = ProfessorApply
+		fields=['explanation_for_apply','university_title']

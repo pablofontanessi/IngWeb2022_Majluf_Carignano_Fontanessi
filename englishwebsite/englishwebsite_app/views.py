@@ -222,7 +222,8 @@ def MultipleQuestionsExercises(request):
 def professors_apply(request):
     already_have_apply = ProfessorApply.objects.filter(professor_name = request.user)
     if len(already_have_apply) > 0:
-        return redirect('/homelogin')
+        messages.success(request, 'You have already applied!')
+        return redirect('/professors')
 
     if request.method == 'POST':
         form = CreateNewProfessorApply(request.POST,request.FILES)

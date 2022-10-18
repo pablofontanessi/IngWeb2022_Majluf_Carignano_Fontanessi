@@ -38,6 +38,14 @@
             <a class="button" onclick="history.back()" role="button">Homepage</a> 
             <a class="button" href="/register/" role="button">Register now</a>
             {% endif %}
+            <br/>
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
             </p>
         </div>
         <div class="slide-container swiper">

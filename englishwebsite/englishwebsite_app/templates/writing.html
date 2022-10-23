@@ -32,10 +32,7 @@
 		</div>
 		<div id="principal">
 			<h2>Exercises for all levels!</h2>
-			<div class="list-group">
-				<a href="grammar-exercises" class="list-group-item list-group-item-action">Grammar exercises</a>
-				<a href="vocabulary-exercises" class="list-group-item list-group-item-action">Vocabulary exercises</a>
-			</div>
+			
 			<ul>
 				{% for exercise in exercise_list %}
 				<li> <a class="button" href="{%url 'exercise-detail' exercise.id %}">{{exercise.title_exercise}}</a> - {{exercise.author}}

@@ -1,5 +1,6 @@
 from asyncore import file_dispatcher
 from dataclasses import fields
+from email.mime import audio
 from django import forms
 from django.forms import ModelForm, ModelChoiceField
 from django.contrib.auth.forms import UserCreationForm
@@ -26,11 +27,12 @@ class CreateNewExercise(ModelForm):
 	correct_answer = forms.CharField(max_length= 500,widget=forms.Textarea)
 	category = forms.ModelChoiceField(queryset=Exercise_Category.objects.all(), empty_label=None)
 	file = forms.FileField(required=False)
+	audio = forms.FileField(required=False)
 
 
 	class Meta:
 		model= Post
-		fields=['title_exercise','description_exercise','activity','correct_answer','category','file' ]
+		fields=['title_exercise','description_exercise','activity','correct_answer','category','file','audio' ]
 
 class addQuestionform(ModelForm):
     class Meta:

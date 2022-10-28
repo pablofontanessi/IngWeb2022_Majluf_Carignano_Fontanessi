@@ -25,7 +25,8 @@ urlpatterns = [
     #path('writting',writingView.as_view(), name= 'writting' ),
     path('exerciseDetail/<int:id>',views.exerciseDetail, name= 'exercise-detail' ),
     path('addQuestion/', views.addQuestion,name='addQuestion'),
-    path('MultipleOption/', views.MultipleQuestionsExercises,name='MultipleOption'),
+    path('MultipleOption/', views.MultipleOpcList,name='MultipleOption'),
+    path('MultipleOption/<int:id>', views.MultipleQuestionsExercises,name='MultipleQuestionsExercises'),
     
     #search
     path('search/', include('haystack.urls')),

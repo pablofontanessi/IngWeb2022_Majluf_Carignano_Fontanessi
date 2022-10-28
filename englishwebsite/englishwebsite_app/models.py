@@ -22,6 +22,7 @@ class Post(models.Model):
     activity = models.TextField('Activity',blank=False, max_length= 500)
     correct_answer = models.TextField('Correct answer',blank=True, max_length= 500)
     file = models.FileField(upload_to='uploads')
+    audio = models.FileField(upload_to='uploads')
     author = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     category = models.ForeignKey(Exercise_Category, on_delete=models.CASCADE)
     available = models.BooleanField('Published/No Published', default= True)

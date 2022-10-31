@@ -1,14 +1,17 @@
+
 {% load static %}
 
 <!DOCTYPE html>
     <html lang="en">
 
     <head>
-        <meta charset="UTF-8">
+        {%block header%}
+        <!-- <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+        
         <title>Our Professors</title>
-
+        
         <!-- Swiper CSS -->
         <link rel="stylesheet" type="text/css" href="{% static '/css/swiper-bundle.min.css' %}"/>
 
@@ -18,18 +21,18 @@
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" 
 		integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 		<!-- Bootswatch-->
-		<link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.min.css' %}"/>                           
+		<link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.min.css' %}"/>
+        {%endblock%}
     </head>
     <body>
+       
+        {% block contenido %}
         <div class="jumbotron">
+            <a class="btn btn-primary btn-lg" href="/homelogin" role="button">HOMEPAGE</a>
             <h1 class="display-3">PROFESSORS!</h1>
             <p class="lead">In this section you can view the active professors in our page...</p>
-            <hr class="my-4">
-            
             <p class="lead">
             {% if request.user.is_authenticated or request.user.is_superuser%}
-            <p>If you dont want view this page, you can go back to homepage.</p>
-            <a class="button" href="/homelogin" role="button">Homepage</a>
             <br>
             <p><br><b>Do you want to be a teacher?</b></p>
             <a class="button" href="professors_apply" role="button">Apply here</a>
@@ -77,7 +80,7 @@
             <div class="swiper-button-prev swiper-navBtn"></div>
             <div class="swiper-pagination"></div>
         </div>
-        
+        {% endblock %}
     </body>
 
     <!-- Swiper JS -->

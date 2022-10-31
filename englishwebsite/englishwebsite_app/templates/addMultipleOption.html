@@ -1,3 +1,4 @@
+
 {%load static%}
 <head>
     {% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/exercises.css' %}" /> {% endcomment %}
@@ -12,6 +13,8 @@
 <p class="lead">
     <a class="btn btn-primary btn-lg" href="/homelogin" role="button">HOMEPAGE</a>
 </p>
+<body>
+{% block contenido %}
 <div class="jumbotron container row">
     <div class="col-md-6">
         <h1>Add Question</h1>
@@ -20,14 +23,16 @@
            <p>For example:</p> 
            <img src="{% static '/img/exampleAns.png' %}" width="300" height="35">
             <br/>
-           <form action="" method="POST">
-              {% csrf_token %}
-                {{form.as_p}}
-                <br>
-             <input type="submit" name="Submit">
-             </form>
+           
             </div>
         </div>
     </div>
- 
 </div>
+<form action="" method="POST">
+    {% csrf_token %}
+      {{form.as_p}}
+      <br>
+   <input type="submit" name="Submit">
+   </form>
+{% endblock %}
+</body>

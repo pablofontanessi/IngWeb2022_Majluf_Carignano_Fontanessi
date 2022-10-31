@@ -19,7 +19,7 @@ from django.db import connection
 # Create your views here.
 
 def base(request):
-    return render(request,'base.html',)
+    return render(request,'homelogin.html',)
 
 @login_required
 def homelogin(request):

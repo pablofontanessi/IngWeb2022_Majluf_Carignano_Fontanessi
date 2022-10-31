@@ -1,14 +1,16 @@
+{% extends "base.html" %}
 {% load static %}
-<head>
+<!-- <head>
 	{% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/exercises.css' %}" /> {% endcomment %}
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{% static '/css/login-register.css' %}"/>
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS --
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" 
     integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <!-- Bootswatch-->
+    <!-- Bootswatch--
     <link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.min.css' %}"/>
-</head>
+</head> -->
+{% block contenido %}
 <div id="principal">
     <ul>
             <h2>{{exercise.title_exercise}} - Author: {{exercise.author}} </h2>
@@ -22,7 +24,7 @@
             <br/>
             {% if exercise.audio != '' %}
                 <audio controls autoplay>
-                    <source src="{{MEDIA_URL}}{{exercise.file}}" type="audio/mpeg">
+                    <source src="{{MEDIA_URL}}{{exercise.audio}}" type="audio/mpeg">
                 there is no audio here.
                 </audio> 
             {% endif %}
@@ -31,6 +33,4 @@
                 <p>{{exercise.correct_answer}}</p>
             </details>
 </div>
-<p class="lead">
-    <a class="btn btn-primary btn-lg" href="/homelogin" role="button">HOMEPAGE</a>
-</p> 
+{% endblock %}

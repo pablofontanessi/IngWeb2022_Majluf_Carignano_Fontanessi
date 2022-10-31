@@ -1,3 +1,4 @@
+{% extends "base.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
 
@@ -13,16 +14,15 @@
 	</head>
 
 <body>
+	{% block contenido %}
 	<section id="professors_apply" class="wrapper style3 special">
 		<p class="lead">
 		</p>
 		<div class="inner">
-			<div class="jumbotron">
-				<h1 class="display-3">APPLY TO BE A PROFESSOR!</h1>
-				<p class="lead">In this section you can apply to be a teacher. <br> if you don't want, you can go <button type="button" class="btn btn-primary btn-lg" onclick="history.back()">Back</button></p>
-				<hr class="my-4">
-			</div>
+			
             <form method="post", action="professors_apply" enctype="multipart/form-data">
+				
+				<p class="lead">In this section you can apply to be a teacher.</p>
                 {% csrf_token %}  
                 {% comment %} {{form.as_p}}  {% endcomment %}
 				{{ form|crispy }} 
@@ -30,6 +30,7 @@
 			</form>
 	
 	</section>
+	{% endblock %}
 </body>
 
 </html>

@@ -30,6 +30,7 @@ urlpatterns = [
     
     #search
     path('search/', include('haystack.urls')),
+    path('index', views.index),
 
     #user register
     path('register/', views.register),

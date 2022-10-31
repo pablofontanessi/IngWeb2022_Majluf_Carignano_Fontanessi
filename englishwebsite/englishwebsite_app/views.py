@@ -252,3 +252,6 @@ def professors_apply(request):
     else:
         form = CreateNewProfessorApply()
     return render(request,'professors_apply.html', {'form':form})
+
+def index(request):
+    return render(request,'index.html',)

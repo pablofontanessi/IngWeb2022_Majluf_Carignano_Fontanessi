@@ -1,4 +1,4 @@
-
+{% extends "index.html" %}
 {% load static %}
 
 <!DOCTYPE html>
@@ -24,67 +24,71 @@
 		<link rel="stylesheet" type="text/css" href="{% static '/css/bootstrap.min.css' %}"/>
         {%endblock%}
     </head>
-    <body>
-       
-        {% block contenido %}
-        <div class="jumbotron">
-            <a class="btn btn-primary btn-lg" href="/homelogin" role="button">HOMEPAGE</a>
-            <h1 class="display-3">PROFESSORS!</h1>
-            <p class="lead">In this section you can view the active professors in our page...</p>
-            <p class="lead">
-            {% if request.user.is_authenticated or request.user.is_superuser%}
-            <br>
-            <p><br><b>Do you want to be a teacher?</b></p>
-            <a class="button" href="professors_apply" role="button">Apply here</a>
-            {% else %}
-            <p>If you dont want view this page, you can go back to homepage, or create an account.</p>
-            <a class="button" onclick="history.back()" role="button">Homepage</a> 
-            <a class="button" href="/register/" role="button">Register now</a>
-            {% endif %}
-            <br/>
-            {% if messages %}
-            <ul class="messages">
-                {% for message in messages %}
-                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-            </p>
-        </div>
-        <div class="slide-container swiper">
-            <div class="slide-content">
-                <div class="card-wrapper swiper-wrapper">
 
-                    {% for professor in professors %}
-                    <div class="card swiper-slide">
-                        <div class="image-content">
-                            <span class="overlay"></span>
-                            <div class="card-image">
-                                <img src="{{MEDIA_URL}}{{professor.avatar}}" alt="" class="card-img">
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <h2 class="name">{{professor.name}}</h2>
-                            <p class="description">{{professor.short_description}}</p>
-
-                            <a class="button" href="{% url 'professors_more' professor.id %}">View More</a>
-                        </div>
-                    </div>
-                    {% endfor%}
+        {% block informacion %}
+        <section class="wrapper style3 special">
+            <div class="inner">
+                <div class="jumbotron">
                     
+                    <h1 class="display-3">PROFESSORS!</h1>
+                    <p class="lead">In this section you can view the active professors in our page...</p>
+                    <p class="lead">
+                    {% if request.user.is_authenticated or request.user.is_superuser%}
+                    <br>
+                    <p><br><b>Do you want to be a teacher?</b></p>
+                    <a class="button" href="professors_apply" role="button">Apply here</a>
+                    {% else %}
+                    <p>If you dont want view this page, you can go back to homepage, or create an account.</p>
+                    
+                    <a class="button" href="/register/" role="button">Register now</a>
+                    {% endif %}
+                    <br/>
+                    {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    </p>
                 </div>
             </div>
-            
+        </section>
+                <div class="slide-container swiper">
+                    <div class="slide-content">
+                        <div class="card-wrapper swiper-wrapper">
 
-            <div class="swiper-button-next swiper-navBtn"></div>
-            <div class="swiper-button-prev swiper-navBtn"></div>
-            <div class="swiper-pagination"></div>
-        </div>
-        {% endblock %}
-    </body>
+                            {% for professor in professors %}
+                            <div class="card swiper-slide">
+                                <div class="image-content">
+                                    <span class="overlay"></span>
+                                    <div class="card-image">
+                                        <img src="{{MEDIA_URL}}{{professor.avatar}}" alt="" class="card-img">
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <h2 class="name">{{professor.name}}</h2>
+                                    <p class="description">{{professor.short_description}}</p>
+
+                                    <a class="button" href="{% url 'professors_more' professor.id %}">View More</a>
+                                </div>
+                            </div>
+                            {% endfor%}
+                            
+                        </div>
+                    </div>
+                    
+
+                    <div class="swiper-button-next swiper-navBtn"></div>
+                    <div class="swiper-button-prev swiper-navBtn"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            
+        
 
     <!-- Swiper JS -->
     <script src="{% static '/js/swiper-bundle.min.js' %}"></script> 
     <!-- JavaScript -->
     <script src="{% static '/js/professors.js' %}"></script>
+    {% endblock %}
 </html>

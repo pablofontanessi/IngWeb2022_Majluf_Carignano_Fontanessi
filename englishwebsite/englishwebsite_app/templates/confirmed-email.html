@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "index.html" %}
 {% load static %}
 
 <!DOCTYPE html>
@@ -16,17 +16,17 @@
 </head> -->
 
 <body>
-	{% block contenido %}
+	{% block informacion %}
 	<section id="writingexercises" class="wrapper style3 special">
 		<div class="inner">
 		<div class="jumbotron">
 			<h1 class="display-3">Registration confirmed!</h1>
 			<p class="lead">Thank you for your email confirmation. Now you can login your account.</p>
 			<hr class="my-4">
-			<p>You can go to login section or go back to homepage.</p>
+			<p>You can go to login section </p>
 			<p class="lead">
 			<a class="btn btn-primary btn-lg" href="/accounts/login/" role="button">SIGN IN</a>
-            <a class="btn btn-primary btn-lg" href="{% url 'logout' %}" role="button">HOMEPAGE</a>
+            
 			</p>
 		</div>
 	</section>
